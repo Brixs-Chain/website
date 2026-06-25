@@ -15,7 +15,7 @@ interface MenuItem {
 
 const menus: Record<string, MenuItem[]> = { 
   Products: [ 
-    { title: "BrixsVM", subtitle: "High-performance smart contract engine.", icon: <Cpu size={20} strokeWidth={1.5} />, href: "/products/brixsvm", badge: "Core" }, 
+    { title: "Native EVM", subtitle: "High-performance smart contract engine.", icon: <Cpu size={20} strokeWidth={1.5} />, href: "/products/native-evm", badge: "Core" }, 
     { title: "Brixs CLI & SDKs", subtitle: "Tools for the developer ecosystem.", icon: <SquareSquare size={20} strokeWidth={1.5} />, href: "/products/developer-ecosystem" }, 
   ], 
   Solutions: [ 
