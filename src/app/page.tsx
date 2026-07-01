@@ -88,10 +88,10 @@ export default function Home() {
           </p>{" "}
           <div className="brx-buttons">
             {" "}
-            <Link className="brx-dark-btn" href="/explorer">
+            <Link className="brx-dark-btn" href="/use-brixs/portal">
               Explore Brixs <ArrowDownRight size={17} />
             </Link>{" "}
-            <Link className="brx-line-btn" href="/solutions">
+            <Link className="brx-line-btn" href="/solutions/architecture">
               For builders <ArrowRight size={16} />
             </Link>{" "}
           </div>{" "}
@@ -155,7 +155,7 @@ export default function Home() {
             <br />
             Many starting points.
           </h2>{" "}
-          <Link href="/solutions">
+          <Link href="/solutions/architecture">
             Explore the Ecosystem <ArrowRight size={17} />
           </Link>{" "}
         </div>{" "}
@@ -211,7 +211,7 @@ export default function Home() {
             clear route forward, and makes every connection part of a bigger
             system.
           </p>{" "}
-          <Link className="brx-light-btn" href="/solutions">
+          <Link className="brx-light-btn" href="/solutions/architecture">
             See what Brixs can unlock <ArrowRight size={17} />
           </Link>{" "}
         </div>{" "}
@@ -249,7 +249,7 @@ export default function Home() {
                 )}
               </span>{" "}
               <h3>{title}</h3> <p>{text}</p>{" "}
-              <Link href="/vision">
+              <Link href="/resources/vision">
                 Learn more <ArrowRight size={15} />
               </Link>{" "}
             </article>

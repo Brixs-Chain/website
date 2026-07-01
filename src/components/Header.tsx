@@ -2,7 +2,7 @@
 import { useState } from 'react'; 
 import Link from 'next/link'; 
 import Image from 'next/image'; 
-import { Menu, ArrowUpRight, ArrowRight, Network, Cpu, Database, Activity, Shield, Server, Coins, Landmark, Zap, Map, FileText, BookOpen, SquareSquare, GitMerge } from 'lucide-react'; 
+import { Menu, ArrowUpRight, ArrowRight, Network, Cpu, Database, Activity, Shield, Server, Coins, Landmark, Zap, Map, FileText, BookOpen, SquareSquare, GitMerge, Wallet, Boxes, Sparkles, Repeat, Rocket, Gift, Terminal, Layers, CreditCard, Bot } from 'lucide-react'; 
 
 interface MenuItem {
   title: string;
@@ -13,31 +13,56 @@ interface MenuItem {
   external?: boolean;
 }
 
-const menus: Record<string, MenuItem[]> = { 
-  Products: [ 
-    { title: "Native EVM", subtitle: "High-performance smart contract engine.", icon: <Cpu size={20} strokeWidth={1.5} />, href: "/products/native-evm", badge: "Core" }, 
-    { title: "Brixs CLI & SDKs", subtitle: "Tools for the developer ecosystem.", icon: <SquareSquare size={20} strokeWidth={1.5} />, href: "/products/developer-ecosystem" }, 
-  ], 
-  Solutions: [ 
-    { title: "Core Architecture", subtitle: "Modular and parallel execution.", icon: <Network size={20} strokeWidth={1.5} />, href: "/solutions/architecture" }, 
-    { title: "Cross-Chain", subtitle: "Native interoperability and bridges.", icon: <GitMerge size={20} strokeWidth={1.5} />, href: "/solutions/interoperability" }, 
-    { title: "Data Model", subtitle: "Object-centric state and storage.", icon: <Database size={20} strokeWidth={1.5} />, href: "/solutions/data-model" }, 
-  ], 
-  Developers: [ 
-    { title: "Consensus", subtitle: "BrixsBFT and network topology.", icon: <Activity size={20} strokeWidth={1.5} />, href: "/developers/consensus" }, 
-    { title: "Security", subtitle: "Post-quantum cryptography.", icon: <Shield size={20} strokeWidth={1.5} />, href: "/developers/security" }, 
-    { title: "Backend", subtitle: "Infrastructure and implementation.", icon: <Server size={20} strokeWidth={1.5} />, href: "/developers/infrastructure" }, 
-  ], 
-  Ecosystem: [ 
-    { title: "Tokenomics", subtitle: "Deflationary mechanics & utility.", icon: <Coins size={20} strokeWidth={1.5} />, href: "/ecosystem/tokenomics" }, 
-    { title: "Governance", subtitle: "Brixs DAO and protocol voting.", icon: <Landmark size={20} strokeWidth={1.5} />, href: "/ecosystem/governance" }, 
-    { title: "Scalability", subtitle: "High throughput performance.", icon: <Zap size={20} strokeWidth={1.5} />, href: "/ecosystem/scalability" }, 
-  ], 
-  Resources: [ 
-    { title: "Roadmap", subtitle: "Future milestones and phases.", icon: <Map size={20} strokeWidth={1.5} />, href: "/resources/roadmap" }, 
-    { title: "Executive Summary", subtitle: "The Brixs vision and mission.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/resources/vision" }, 
-    { title: "Documentation", subtitle: "Read the full technical docs.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/", external: true }, 
-  ] 
+const menus: Record<string, MenuItem[]> = {
+  Products: [
+    { title: "Native EVM", subtitle: "High-performance smart contract engine.", icon: <Cpu size={20} strokeWidth={1.5} />, href: "/products/native-evm", badge: "Core" },
+    { title: "Brixs CLI & SDKs", subtitle: "Tools for the developer ecosystem.", icon: <SquareSquare size={20} strokeWidth={1.5} />, href: "/products/developer-ecosystem" },
+    { title: "Brixs Wallet", subtitle: "Send, receive, and hold assets.", icon: <Wallet size={20} strokeWidth={1.5} />, href: "/use-brixs/wallet" },
+    { title: "Portal", subtitle: "Bridge, swap, and manage assets.", icon: <Layers size={20} strokeWidth={1.5} />, href: "/use-brixs/portal" },
+  ],
+  Solutions: [
+    { title: "Core Architecture", subtitle: "Modular and parallel execution.", icon: <Network size={20} strokeWidth={1.5} />, href: "/solutions/architecture" },
+    { title: "Interoperability", subtitle: "Native cross-chain and bridges.", icon: <GitMerge size={20} strokeWidth={1.5} />, href: "/solutions/interoperability" },
+    { title: "Data Model", subtitle: "Object-centric state and storage.", icon: <Database size={20} strokeWidth={1.5} />, href: "/solutions/data-model" },
+    { title: "L2 Chain", subtitle: "The core execution layer.", icon: <Boxes size={20} strokeWidth={1.5} />, href: "/solutions/l2-chain" },
+    { title: "AggLayer", subtitle: "Unified cross-chain liquidity.", icon: <Layers size={20} strokeWidth={1.5} />, href: "/solutions/brixs-agglayer" },
+    { title: "Vaultbridge", subtitle: "Institutional asset movement.", icon: <Shield size={20} strokeWidth={1.5} />, href: "/solutions/vaultbridge" },
+    { title: "Brixs CDK", subtitle: "Launch your own app-chain.", icon: <Rocket size={20} strokeWidth={1.5} />, href: "/solutions/brixs-cdk" },
+  ],
+  "Use Cases": [
+    { title: "Payments", subtitle: "Gasless micro-payments and settlement.", icon: <CreditCard size={20} strokeWidth={1.5} />, href: "/use-cases/payments" },
+    { title: "Stablecoins", subtitle: "Stable value and liquidity rails.", icon: <Coins size={20} strokeWidth={1.5} />, href: "/use-cases/stablecoins" },
+    { title: "RWAs", subtitle: "Tokenized real-world assets.", icon: <Boxes size={20} strokeWidth={1.5} />, href: "/use-cases/rwas" },
+    { title: "Agentic AI", subtitle: "Autonomous on-chain agents.", icon: <Bot size={20} strokeWidth={1.5} />, href: "/use-cases/agentic-ai" },
+    { title: "On / Off Ramps", subtitle: "Fiat to stablecoin entry points.", icon: <Repeat size={20} strokeWidth={1.5} />, href: "/solutions/on-off-ramps" },
+  ],
+  Developers: [
+    { title: "Consensus", subtitle: "BrixsBFT and network topology.", icon: <Activity size={20} strokeWidth={1.5} />, href: "/developers/consensus" },
+    { title: "Security", subtitle: "Post-quantum cryptography.", icon: <Shield size={20} strokeWidth={1.5} />, href: "/developers/security" },
+    { title: "Infrastructure", subtitle: "Nodes, RPC, and implementation.", icon: <Server size={20} strokeWidth={1.5} />, href: "/developers/infrastructure" },
+    { title: "Brixs CLI", subtitle: "Command-line for builders.", icon: <Terminal size={20} strokeWidth={1.5} />, href: "/cli" },
+    { title: "Agent CLI", subtitle: "Operator and agent tooling.", icon: <Terminal size={20} strokeWidth={1.5} />, href: "/use-brixs/agent-cli" },
+  ],
+  Ecosystem: [
+    { title: "Tokenomics", subtitle: "Deflationary mechanics & utility.", icon: <Coins size={20} strokeWidth={1.5} />, href: "/ecosystem/tokenomics" },
+    { title: "Governance", subtitle: "Brixs DAO and protocol voting.", icon: <Landmark size={20} strokeWidth={1.5} />, href: "/ecosystem/governance" },
+    { title: "Scalability", subtitle: "High throughput performance.", icon: <Zap size={20} strokeWidth={1.5} />, href: "/ecosystem/scalability" },
+    { title: "Staking", subtitle: "Secure the network, earn rewards.", icon: <Sparkles size={20} strokeWidth={1.5} />, href: "/use-brixs/staking" },
+    { title: "Airdrops", subtitle: "Quests, rewards, and campaigns.", icon: <Gift size={20} strokeWidth={1.5} />, href: "/use-brixs/airdrops" },
+  ],
+  Resources: [
+    { title: "Roadmap", subtitle: "Future milestones and phases.", icon: <Map size={20} strokeWidth={1.5} />, href: "/resources/roadmap" },
+    { title: "Executive Summary", subtitle: "The Brixs vision and mission.", icon: <FileText size={20} strokeWidth={1.5} />, href: "/resources/executive-summary" },
+    { title: "Vision", subtitle: "The long-term thesis.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "/resources/vision" },
+  ],
+  Docs: [
+    { title: "Platform Overview", subtitle: "Architecture, consensus, data model.", icon: <BookOpen size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/platform/overview", external: true },
+    { title: "Smart Contracts", subtitle: "Build and deploy on Brixs.", icon: <FileText size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/smart-contracts/overview", external: true },
+    { title: "Wallets", subtitle: "Custodial & non-custodial SDKs.", icon: <Shield size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/wallets/overview", external: true },
+    { title: "Cross-Chain", subtitle: "Bridges and interoperability.", icon: <GitMerge size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/cross-chain/overview", external: true },
+    { title: "Infrastructure", subtitle: "Nodes, RPC, and topology.", icon: <Server size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/infrastructure/overview", external: true },
+    { title: "API Reference", subtitle: "RPC endpoints and methods.", icon: <Database size={20} strokeWidth={1.5} />, href: "https://docs.brixs.space/api/overview", external: true },
+  ],
 }; 
 
 export default function Header() { 
@@ -80,7 +105,7 @@ export default function Header() {
       </div> 
       <div className="flex items-center gap-4"> 
         <Link className="hidden md:flex text-[15px] font-medium text-gray-700 hover:text-black transition-colors" href="/cli"> Start building </Link> 
-        <Link className="hidden md:flex bg-[#0052FF] text-white hover:bg-blue-700 px-5 py-2.5 rounded-none text-[15px] font-semibold items-center gap-2 transition-colors" href="/explorer"> Enter Brixs </Link> 
+        <Link className="hidden md:flex bg-[#0052FF] text-white hover:bg-blue-700 px-5 py-2.5 rounded-none text-[15px] font-semibold items-center gap-2 transition-colors" href="/use-brixs/portal"> Enter Brixs </Link> 
         <button aria-label="Open navigation" className="lg:hidden text-black"><Menu size={24} /></button> 
       </div> 
     </header> 

@@ -48,7 +48,9 @@ export default function BrxFooter() {
           <div className="mt-8">
             <h3 className="font-bold text-white mb-5 text-[11px] uppercase tracking-wider">Products</h3>
             <ul className="flex flex-col gap-3.5">
-              <li><Link href="/products/brixs-vm" className="hover:text-white transition-colors">Brixs VM</Link></li>
+              <li><Link href="/products/native-evm" className="hover:text-white transition-colors">Native EVM</Link></li>
+                <li><Link href="/use-brixs/wallet" className="hover:text-white transition-colors">Brixs Wallet</Link></li>
+                <li><Link href="/use-brixs/portal" className="hover:text-white transition-colors">Portal</Link></li>
               <li><Link href="/products/developer-ecosystem" className="hover:text-white transition-colors">Developer Ecosystem</Link></li>
             </ul>
           </div>
@@ -116,6 +118,10 @@ export default function BrxFooter() {
             <h3 className="font-bold text-white mb-5 text-[11px] uppercase tracking-wider">Community & Docs</h3>
             <ul className="flex flex-col gap-3.5">
               <li><a href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Documentation</a></li>
+                <li><a href="https://docs.brixs.space/platform/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Platform Docs</a></li>
+                <li><a href="https://docs.brixs.space/smart-contracts/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Smart Contracts</a></li>
+                <li><a href="https://docs.brixs.space/wallets/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Wallets</a></li>
+                <li><a href="https://docs.brixs.space/api/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">API Reference</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Testnet Faucet</a></li>
               <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
               <li><Link href="/resources/roadmap" className="hover:text-white transition-colors">Development Updates</Link></li>
@@ -125,9 +131,12 @@ export default function BrxFooter() {
           <div className="mt-8 relative z-10">
             <h3 className="font-bold text-white mb-5 text-[11px] uppercase tracking-wider">Legal & Contact</h3>
             <ul className="flex flex-col gap-3.5">
-              <li><a href="mailto:hello@brixs.space" className="hover:text-white transition-colors">Contact Us</a></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Terms of Use</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/company/about" className="hover:text-white transition-colors">About</Link></li>
+                <li><Link href="/company/vision" className="hover:text-white transition-colors">Vision</Link></li>
+                <li><Link href="/company/whitepaper" className="hover:text-white transition-colors">Whitepaper</Link></li>
+                <li><a href="mailto:hello@brixs.space" className="hover:text-white transition-colors">Contact Us</a></li>
+              <li><Link href="/legal" className="hover:text-white transition-colors">Terms of Use</Link></li>
+              <li><Link href="/legal" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 

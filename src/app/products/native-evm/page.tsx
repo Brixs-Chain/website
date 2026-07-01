@@ -1,1 +1,186 @@
-"use client"; import Image from "next/image"; import Link from "next/link"; import { useEffect, useState } from "react"; import { Code, Server, Shield, Zap } from "lucide-react"; export default function NativeEVMPage() { const [mounted, setMounted] = useState(false); useEffect(() => { setMounted(true); }, []); return ( <main className="min-h-screen bg-[#000000] text-white selection:bg-[#FF3B30] selection:text-black font-sans overflow-x-hidden"> {/* SECTION 1 — CINEMATIC HERO */} <section className="relative min-h-[90vh] flex items-center pt-32 pb-20 overflow-hidden"> <div className="absolute inset-0 z-0 opacity-20 bg-[linear-gradient(rgba(29,77,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(29,77,255,0.05)_1px,transparent_1px)] bg-[size:60px_60px]" /> <div className="container mx-auto px-6 relative z-10"> <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center max-w-7xl mx-auto"> <div className="flex flex-col items-start opacity-0 animate-[fade-in_1s_ease-out_forwards]"> <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-none bg-white/5 ava-cut border-l-4 border-l-[#8C5AFC] border border-white/10 text-xs font-mono font-bold tracking-widest text-[#8C5AFC] mb-8 uppercase"> BRIXS Execution Engine </div> <h1 className="text-6xl uppercase md:text-[5.5rem] font-black tracking-tighter leading-[0.9] mb-8"> Compute built for <br /> <span className="text-white/40">global scale.</span> </h1> <p className="text-xl text-gray-400 mb-12 max-w-lg leading-relaxed font-medium"> Native EVM is an object-centric, multi-threaded execution environment engineered to eliminate the state bottlenecks limiting modern infrastructure. </p> <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"> <Link href="#architecture" className="px-8 py-4 rounded-none bg-white text-black ava-cut font-bold text-lg hover:scale-[1.02] transition-transform duration-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(255,255,255,0.05),0_12px_34px_rgba(0,0,0,0.5)] flex items-center justify-center"> Explore Architecture </Link> <Link href="https://docs.brixs.space/platform/overview" className="px-8 py-4 rounded-none bg-transparent border border-white/20 text-white font-bold text-lg hover:bg-white/5 ava-cut border-l-4 border-l-[#2B6AFF] transition-all duration-500 ease-out flex items-center justify-center"> Read Documentation </Link> </div> </div> <div className="relative w-full aspect-square flex items-center justify-center opacity-0 animate-[fade-in_1s_ease-out_0.5s_forwards]"> <div className="absolute inset-0 bg-[#00D395]/10 rounded-none blur-[100px] z-0" /> <Image src="/assets/3d-assets/execution-engine.png" alt="Execution Engine" fill className="object-contain z-10" /> </div> </div> </div> </section> {/* SECTION 2 — BENCHMARKS */} <section className="py-32 bg-black border-y border-white/10"> <div className="max-w-7xl mx-auto px-6"> <div className="flex flex-col md:flex-row gap-16 justify-between items-end mb-16"> <h2 className="text-5xl uppercase font-black tracking-tighter max-w-xl"> Performance beyond sequential machines. </h2> <p className="text-gray-400 font-medium max-w-sm leading-relaxed text-balance"> Throughput scales linearly with node hardware. No artificial gas limits. No shared state congestion. </p> </div> <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4"> {[ { label: "Ethereum EVM", value: "15 TPS" }, { label: "Arbitrum", value: "40,000 TPS" }, { label: "Optimism", value: "25,000 TPS" }, { label: "Solana", value: "65,000 TPS" }, { label: "Native EVM", value: "~2,500 TPS", active: true } ].map((metric, i) => ( <div key={i} className={`p-8 rounded-none flex flex-col justify-between h-48 border transition-all duration-500 ${metric.active ? 'bg-[#005BFF]/10 border-[#005BFF] shadow-[0_0_40px_rgba(29,77,255,0.15)] scale-105' : 'bg-white/5 ava-cut border-l-4 border-l-[#E84142] border-white/10'}`}> <span className="font-mono text-sm text-gray-500 uppercase tracking-widest">{metric.label}</span> <span className={`text-4xl uppercase font-black tracking-tighter ${metric.active ? 'text-[#E84142]' : 'text-white'}`}>{metric.value}</span> </div> ))} </div> </div> </section> {/* SECTION 3 — TECHNICAL ARCHITECTURE */} <section id="architecture" className="py-32"> <div className="max-w-7xl mx-auto px-6"> <div className="grid lg:grid-cols-2 gap-24 items-center"> <div className="flex flex-col gap-12"> <h2 className="text-5xl uppercase font-black tracking-tighter leading-[1.05]"> Object-centric state. </h2> <div className="flex flex-col gap-8"> {[ { icon: Zap, title: "Parallel Execution", desc: "Transactions touching independent objects execute concurrently without locks." }, { icon: Shield, title: "Hardware Enclaves", desc: "Formally verified opcode execution ensuring deterministic security." }, { icon: Server, title: "Optimized Memory", desc: "Predictable resource allocation bypassing traditional cache bottlenecks." } ].map((feat, i) => ( <div key={i} className="flex gap-6"> <div className="w-12 h-12 rounded-none bg-white/5 ava-cut border-l-4 border-l-[#FFB800] border border-white/10 flex items-center justify-center shrink-0"> <feat.icon size={20} className="text-[#FF3B30]" /> </div> <div> <h3 className="text-xl font-bold mb-2">{feat.title}</h3> <p className="text-gray-400 leading-relaxed">{feat.desc}</p> </div> </div> ))} </div> </div> <div className="relative rounded-none bg-[#000000] ava-cut border border-white/10 overflow-hidden shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(255,255,255,0.05),0_12px_34px_rgba(0,0,0,0.5)]"> <div className="flex items-center gap-2 bg-black/50 px-6 py-4 border-b border-white/10"> <div className="w-3 h-3 rounded-none bg-[#FF5F56]/50" /> <div className="w-3 h-3 rounded-none bg-[#FFBD2E]/50" /> <div className="w-3 h-3 rounded-none bg-[#27C93F]/50" /> <span className="ml-4 font-mono text-xs text-gray-500">execution_engine.rs</span> </div> <div className="p-8 font-mono text-sm text-gray-300"> <pre className="overflow-x-auto whitespace-pre"> <code> {`pub fn execute_transaction( ctx: &mut ExecutionContext, tx: Transaction ) -> Result<ExecutionResult> { // 1. Resolve objects let objects = ctx.resolve_dependencies(&tx.inputs)?; // 2. Parallel state locking let _locks = StateManager::lock_objects(&objects); // 3. VM Execution let result = native-evm::run(&tx.payload, &objects)?; // 4. State commitment ctx.commit_mutations(result.mutations); Ok(result) }`} </code> </pre> </div> </div> </div> </div> </section> {/* SECTION 4 — EVM COMPATIBILITY */} <section className="py-32 bg-white text-black ava-cut"> <div className="max-w-7xl mx-auto px-6"> <div className="grid lg:grid-cols-2 gap-16 items-center"> <div className="order-2 lg:order-1 relative aspect-[4/3] rounded-none border border-gray-200 bg-gray-50 flex flex-col items-center justify-center p-8 overflow-hidden shadow-sm"> <div className="absolute inset-0 opacity-10"> <Image src="/assets/backgrounds/blueprint-bg.png" alt="Grid" fill className="object-cover mix-blend-multiply" /> </div> <div className="grid grid-cols-2 gap-4 w-full max-w-sm relative z-10"> {['Solidity', 'Foundry', 'Hardhat', 'Ethers.js'].map((tool, i) => ( <div key={i} className="bg-white border border-gray-200 py-4 rounded-none font-bold text-center shadow-sm"> {tool} </div> ))} </div> </div> <div className="order-1 lg:order-2 flex flex-col gap-6"> <h2 className="text-5xl uppercase font-black tracking-tighter leading-[1.05] mb-4"> Compatible with what works. </h2> <p className="text-xl text-gray-600 mb-8 leading-relaxed"> Deploy existing Ethereum smart contracts natively. Zero migration friction, utilizing standard RPC infrastructure. </p> <div className="flex flex-col gap-4"> {['Native Solidity support', 'Standard RPC endpoints', 'Metamask integration'].map((feat, i) => ( <div key={i} className="flex items-center gap-4"> <Code size={20} className="text-[#8C5AFC]" /> <span className="font-bold text-lg">{feat}</span> </div> ))} </div> </div> </div> </div> </section> {/* CTA */} <section className="py-40 bg-black text-center flex flex-col items-center"> <h2 className="text-6xl uppercase md:text-[7rem] font-black tracking-tighter mb-12 max-w-4xl leading-[0.9]"> Deploy on Native EVM. </h2> <Link href="/cli" className="px-12 py-5 rounded-none bg-white text-black ava-cut font-bold text-xl hover:scale-[1.02] transition-transform duration-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(255,255,255,0.05),0_12px_34px_rgba(0,0,0,0.5)]"> Initialize Project </Link> </section> <style dangerouslySetInnerHTML={{__html: ` @keyframes fade-in { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } } `}} /> </main> ); } 
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import BrxFooter from "@/components/BrxFooter";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Code,
+  Cpu,
+  MemoryStick,
+  Server,
+  Shield,
+  Zap,
+} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Native EVM | Brixs Chain",
+  description:
+    "Native EVM is an object-centric, multi-threaded execution environment engineered to eliminate the state bottlenecks limiting modern infrastructure.",
+};
+
+const features: [typeof Zap, string, string][] = [
+  [Zap, "Parallel execution", "Transactions touching independent objects execute concurrently without locks."],
+  [Shield, "Hardware enclaves", "Formally verified opcode execution ensuring deterministic security."],
+  [Server, "Optimized memory", "Predictable resource allocation bypassing traditional cache bottlenecks."],
+  [Code, "EVM compatible", "Deploy existing Ethereum contracts natively with zero migration friction."],
+];
+
+export default function NativeEVMPage() {
+  return (
+    <main className="brx-page" style={{ "--accent": "#2b6aff" } as React.CSSProperties}>
+      {/* HERO — split-media */}
+      <section className="brx-h-media">
+        <div className="brx-rise">
+          <span className="brx-ph-eyebrow">
+            <Cpu size={14} /> Products · Native EVM
+          </span>
+          <h1>
+            Compute built for global <em>scale.</em>
+          </h1>
+          <p className="brx-ph-lead">
+            Native EVM is an object-centric, multi-threaded execution environment
+            engineered to eliminate the state bottlenecks limiting modern
+            infrastructure.
+          </p>
+          <div className="brx-ph-actions">
+            <a className="brx-btn accent" href="/cli">
+              Initialize project <ArrowRight size={16} />
+            </a>
+            <Link className="brx-btn-line" href="/">
+              Back to overview <ArrowUpRight size={16} />
+            </Link>
+          </div>
+          <div className="brx-ph-stats">
+            {[["~2,500", "Native EVM TPS"], ["0", "Migration friction"], ["100%", "Solidity support"]].map(([v, l]) => (
+              <div className="brx-stat" key={l}>
+                <b>{v}</b>
+                <span>{l}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="brx-h-media-frame">
+          <video src="/assets/official/model-1.mp4" autoPlay muted loop playsInline />
+          <span className="brx-tag">BRX / EVM</span>
+        </div>
+      </section>
+
+      {/* METRICS */}
+      <section className="brx-section">
+        <div className="brx-section-head">
+          <p className="brx-eyebrow">Performance</p>
+          <h2>Performance beyond sequential machines.</h2>
+          <p>
+            Throughput scales linearly with node hardware. No artificial gas
+            limits. No shared state congestion.
+          </p>
+        </div>
+        <div className="brx-metrics">
+          {[["~2,500 TPS", "Native EVM throughput"], ["15 TPS", "Ethereum EVM baseline"], ["Zero", "Migration friction"]].map(([v, l]) => (
+            <div className="brx-metric" key={l}><b>{v}</b><span>{l}</span></div>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURES — matrix */}
+      <section className="brx-section gray">
+        <div className="brx-section-head">
+          <p className="brx-eyebrow">Technical architecture</p>
+          <h2>Object-centric state.</h2>
+        </div>
+        <div className="brx-fmatrix">
+          {features.map(([Ico, title, desc]) => (
+            <div className="brx-fcell" key={title}>
+              <span className="brx-fcell-ico"><Ico size={22} /></span>
+              <h3>{title}</h3>
+              <p>{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CODE */}
+      <section className="brx-section">
+        <div className="brx-codewrap">
+          <div>
+            <p className="brx-eyebrow">Execution engine</p>
+            <h2 style={{ fontSize: "clamp(28px,3vw,46px)", lineHeight: 0.95, letterSpacing: "-0.05em", margin: "16px 0 24px" }}>
+              Transactions, resolved in parallel.
+            </h2>
+            <div className="brx-fsplit-list">
+              <div className="brx-fsplit-item">
+                <b>Parallel state locking</b>
+                <p>Independent objects are resolved and locked so unrelated transactions never contend.</p>
+              </div>
+              <div className="brx-fsplit-item">
+                <b>Deterministic commitment</b>
+                <p>Mutations commit through a verified path, keeping execution safe and reproducible.</p>
+              </div>
+            </div>
+          </div>
+          <div className="brx-code">
+            <div className="brx-code-bar">
+              <i /><i /><i /><span>execution_engine.rs</span>
+            </div>
+            <pre>
+              <div>pub fn execute_transaction(</div>
+              <div>{"    ctx: &mut ExecutionContext,"}</div>
+              <div>{"    tx: Transaction"}</div>
+              <div>{") -> Result<ExecutionResult> {"}</div>
+              <div className="c">    // 1. Resolve objects</div>
+              <div>{"    let objects = ctx.resolve_dependencies(&tx.inputs)?;"}</div>
+              <div className="c">    // 2. Parallel state locking</div>
+              <div>{"    let _locks = StateManager::lock_objects(&objects);"}</div>
+              <div className="c">    // 3. VM Execution</div>
+              <div>{"    let result = native-evm::run(&tx.payload, &objects)?;"}</div>
+              <div className="c">    // 4. State commitment</div>
+              <div>{"    ctx.commit_mutations(result.mutations);"}</div>
+              <div>{"    Ok(result)"}</div>
+              <div>{"}"}</div>
+            </pre>
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY — mosaic */}
+      <section className="brx-section gray">
+        <div className="brx-section-head">
+          <p className="brx-eyebrow">Visual surface</p>
+          <h2>Native EVM in the system.</h2>
+        </div>
+        <div className="brx-gmosaic">
+          {[
+            ["/assets/3d-assets/execution-engine.png", "Execution engine"],
+            ["/assets/3d-assets/parallel-execution.jpg", "Parallel execution"],
+            ["/assets/3d-assets/cube-01.png", "Object-centric state"],
+          ].map(([src, cap]) => (
+            <figure className="brx-shot" key={src}>
+              <Image src={src} alt={cap} width={1200} height={900} />
+              <figcaption>{cap}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="brx-cta" style={{ background: "#2b6aff", color: "#06121f" }}>
+        <p className="brx-kicker"><b /> The Brixs network</p>
+        <h2>
+          Deploy on <em>Native EVM.</em>
+        </h2>
+        <nav>
+          <a className="brx-btn" href="/cli">
+            Initialize project <ArrowRight size={16} />
+          </a>
+          <a className="brx-btn" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer" style={{ background: "#fff", color: "#06121f" }}>
+            Read documentation <MemoryStick size={16} />
+          </a>
+        </nav>
+      </section>
+
+      <BrxFooter />
+    </main>
+  );
+}

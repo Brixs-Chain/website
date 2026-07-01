@@ -1,5 +1,12 @@
 type MediaType = "image" | "video";
 
+export type MediaItem = {
+  type: MediaType;
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
 export type SitePage = {
   path: string[];
   group: "solutions" | "use-cases" | "docs" | "community" | "use-brixs" | "company" | "legal";
@@ -9,12 +16,16 @@ export type SitePage = {
   detail: string;
   bullets: string[];
   stats: Array<[string, string]>;
-  media: {
-    type: MediaType;
-    src: string;
-    alt: string;
-  };
+  media: MediaItem;
+  /** Brand accent (hex) used to color the page's hero, bands, and motion. */
+  accent: string;
+  /** Short uppercase motif word shown in the hero readout. */
+  motif: string;
+  /** Curated set of real, relevant assets shown in the page media gallery. */
+  gallery: MediaItem[];
 };
+
+type BasePage = Omit<SitePage, "accent" | "motif" | "gallery">;
 
 export type SiteSection = {
   key: SitePage["group"];
@@ -22,11 +33,13 @@ export type SiteSection = {
   description: string;
 };
 
-const video = "/brixs-assets/architecture-motion.mp4";
-const zeroGas = "/brixs-assets/zero-gas-portal.jpeg";
-const agentSphere = "/brixs-assets/agent-node-sphere.jpeg";
-const ringStation = "/brixs-assets/hexagonal-ring-station.jpeg";
-const dataCubes = "/brixs-assets/stacked-data-cubes-terminal.jpeg";
+// Real, on-disk assets (public/assets/*). Per-page hero + gallery media is
+// assigned uniquely below via `mediaPlan`; these defaults keep the base data valid.
+const video = "/assets/videos/architecture-rotate.mp4";
+const zeroGas = "/assets/3d-assets/protocol-core.png";
+const agentSphere = "/assets/3d-assets/crystal-01.png";
+const ringStation = "/assets/3d-assets/orbital-ring.png";
+const dataCubes = "/assets/3d-assets/cube-01.png";
 
 export const siteSections: SiteSection[] = [
   {
@@ -66,7 +79,7 @@ export const siteSections: SiteSection[] = [
   },
 ];
 
-export const sitePages: SitePage[] = [
+const basePages: BasePage[] = [
   {
     path: ["solutions", "l2-chain"],
     group: "solutions",
@@ -688,6 +701,332 @@ export const sitePages: SitePage[] = [
     media: { type: "video", src: video, alt: "Legal motion visual" },
   },
 ];
+
+// Brand accents pulled straight from the homepage system.
+const ACCENT = {
+  green: "#00d395",
+  blue: "#2b6aff",
+  yellow: "#ffb800",
+  red: "#ff3b30",
+  purple: "#8c5afc",
+} as const;
+
+const V = (name: string) => `/assets/videos/${name}.mp4`;
+const I = (name: string) => `/assets/3d-assets/${name}`;
+
+type Plan = { accent: string; motif: string; media: MediaItem; gallery: MediaItem[] };
+
+// Each page gets a unique, topic-relevant hero and a 3-asset gallery so no two
+// pages reuse the same composition. All paths point at real files in /public/assets.
+const mediaPlan: Record<string, Plan> = {
+  "solutions/l2-chain": {
+    accent: ACCENT.green, motif: "EXECUTION",
+    media: { type: "video", src: V("architecture-rotate"), alt: "Brixs L2 execution layer in motion" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Protocol core", caption: "Settlement core" },
+      { type: "image", src: I("execution-engine.png"), alt: "Execution engine", caption: "Parallel execution" },
+      { type: "image", src: I("orbital-ring.png"), alt: "Network ring", caption: "Network surface" },
+    ],
+  },
+  "solutions/crosschain-interop": {
+    accent: ACCENT.blue, motif: "ROUTING",
+    media: { type: "video", src: V("orbital-ring"), alt: "Cross-chain routing rings" },
+    gallery: [
+      { type: "image", src: I("orbital-ring.png"), alt: "Routing ring", caption: "Unified routes" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Validator mesh", caption: "Connected chains" },
+      { type: "image", src: I("data-prism.png"), alt: "Data prism", caption: "Value in motion" },
+    ],
+  },
+  "solutions/wallet-infrastructure": {
+    accent: ACCENT.purple, motif: "ACCOUNTS",
+    media: { type: "image", src: I("secure-node.png"), alt: "Secure account node" },
+    gallery: [
+      { type: "image", src: I("node-icon.png"), alt: "Account node", caption: "Session keys" },
+      { type: "image", src: I("secure-node.png"), alt: "Secure node", caption: "Sponsored gas" },
+      { type: "image", src: I("protocol-core.png"), alt: "Protocol core", caption: "Native AA" },
+    ],
+  },
+  "solutions/on-off-ramps": {
+    accent: ACCENT.green, motif: "RAMPS",
+    media: { type: "video", src: V("liquidity-engine"), alt: "Liquidity ramp flows" },
+    gallery: [
+      { type: "image", src: I("graph-chart.png"), alt: "Flow chart", caption: "Fiat in" },
+      { type: "image", src: I("pie-chart.png"), alt: "Allocation", caption: "Stable rails" },
+      { type: "image", src: I("gas-optimization.jpg"), alt: "Optimized fees", caption: "Fast checkout" },
+    ],
+  },
+  "solutions/brixs-cdk": {
+    accent: ACCENT.yellow, motif: "LAUNCH",
+    media: { type: "video", src: V("cube-01"), alt: "Chain development kit blocks" },
+    gallery: [
+      { type: "image", src: I("cube-01.png"), alt: "Launch block", caption: "Templates" },
+      { type: "image", src: I("crystal-01.png"), alt: "Crystal", caption: "App chains" },
+      { type: "image", src: I("data-prism.png"), alt: "Data prism", caption: "Reusable infra" },
+    ],
+  },
+  "solutions/brixs-agglayer": {
+    accent: ACCENT.blue, motif: "AGGREGATE",
+    media: { type: "video", src: V("data-prism"), alt: "Aggregated liquidity prism" },
+    gallery: [
+      { type: "image", src: I("data-prism.png"), alt: "Data prism", caption: "Unified view" },
+      { type: "image", src: I("orbital-ring.png"), alt: "Ring", caption: "Connected chains" },
+      { type: "image", src: I("graph-chart.png"), alt: "Chart", caption: "Liquidity depth" },
+    ],
+  },
+  "solutions/vaultbridge": {
+    accent: ACCENT.green, motif: "BRIDGE",
+    media: { type: "video", src: V("secure-node"), alt: "Secured bridge vault" },
+    gallery: [
+      { type: "image", src: I("secure-node.png"), alt: "Vault", caption: "Safe routes" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Mesh", caption: "Traceable flows" },
+      { type: "image", src: I("cube-01.png"), alt: "Asset block", caption: "Treasury moves" },
+    ],
+  },
+  "use-cases/payments": {
+    accent: ACCENT.blue, motif: "PAYMENTS",
+    media: { type: "video", src: V("liquidity-engine"), alt: "Payment settlement flows" },
+    gallery: [
+      { type: "image", src: I("gas-optimization.jpg"), alt: "Low fees", caption: "Low friction" },
+      { type: "image", src: I("graph-chart.png"), alt: "Volume", caption: "Fast settlement" },
+      { type: "image", src: I("pie-chart.png"), alt: "Split", caption: "Merchant rails" },
+    ],
+  },
+  "use-cases/rwas": {
+    accent: ACCENT.yellow, motif: "ASSETS",
+    media: { type: "image", src: I("cube-01.png"), alt: "Tokenized asset block" },
+    gallery: [
+      { type: "image", src: I("cube-01.png"), alt: "Asset", caption: "Tokenized" },
+      { type: "image", src: I("crystal-01.png"), alt: "Crystal", caption: "Audit ready" },
+      { type: "image", src: I("pie-chart.png"), alt: "Holdings", caption: "Desk friendly" },
+    ],
+  },
+  "use-cases/stablecoins": {
+    accent: ACCENT.green, motif: "STABLE",
+    media: { type: "video", src: V("graph-chart"), alt: "Stable value throughput" },
+    gallery: [
+      { type: "image", src: I("graph-chart.png"), alt: "Throughput", caption: "High throughput" },
+      { type: "image", src: I("pie-chart.png"), alt: "Reserves", caption: "Treasury" },
+      { type: "image", src: I("gas-optimization.jpg"), alt: "Fees", caption: "Predictable" },
+    ],
+  },
+  "use-cases/agentic-ai": {
+    accent: ACCENT.purple, motif: "AGENTS",
+    media: { type: "video", src: V("crystal-01"), alt: "Agentic systems crystal" },
+    gallery: [
+      { type: "image", src: I("crystal-01.png"), alt: "Agent", caption: "Autonomous" },
+      { type: "image", src: I("node-icon.png"), alt: "Node", caption: "Scoped keys" },
+      { type: "image", src: I("data-prism.png"), alt: "Prism", caption: "Chain native" },
+    ],
+  },
+  "docs/core-brixs-chain": {
+    accent: ACCENT.yellow, motif: "PROTOCOL",
+    media: { type: "video", src: V("architecture-rotate"), alt: "Core protocol architecture" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Core", caption: "Network core" },
+      { type: "image", src: I("execution-engine.png"), alt: "Engine", caption: "Execution" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Mesh", caption: "Settlement" },
+    ],
+  },
+  "docs/crosschain-interoperability": {
+    accent: ACCENT.blue, motif: "INTEROP",
+    media: { type: "video", src: V("orbital-ring"), alt: "Interoperability routing" },
+    gallery: [
+      { type: "image", src: I("orbital-ring.png"), alt: "Ring", caption: "Bridge routes" },
+      { type: "image", src: I("data-prism.png"), alt: "Prism", caption: "Value paths" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Mesh", caption: "Connected" },
+    ],
+  },
+  "docs/wallet-infrastructure": {
+    accent: ACCENT.purple, motif: "AA + KEYS",
+    media: { type: "image", src: I("node-icon.png"), alt: "Wallet account node" },
+    gallery: [
+      { type: "image", src: I("node-icon.png"), alt: "Node", caption: "Accounts" },
+      { type: "image", src: I("secure-node.png"), alt: "Secure", caption: "Paymasters" },
+      { type: "image", src: I("protocol-core.png"), alt: "Core", caption: "Signing" },
+    ],
+  },
+  "docs/agglayer-vaultbridge-cdk": {
+    accent: ACCENT.green, motif: "STACK",
+    media: { type: "video", src: V("infrastructure-loop"), alt: "Launch and liquidity stack" },
+    gallery: [
+      { type: "image", src: I("cube-01.png"), alt: "CDK", caption: "Launch kit" },
+      { type: "image", src: I("data-prism.png"), alt: "AggLayer", caption: "Aggregation" },
+      { type: "image", src: I("orbital-ring.png"), alt: "Bridge", caption: "Vaultbridge" },
+    ],
+  },
+  "docs/agentic-wallet-cli": {
+    accent: ACCENT.red, motif: "AUTOMATION",
+    media: { type: "video", src: V("node-icon"), alt: "Agent CLI node" },
+    gallery: [
+      { type: "image", src: I("node-icon.png"), alt: "CLI", caption: "Commands" },
+      { type: "image", src: I("crystal-01.png"), alt: "Agent", caption: "Agent-safe" },
+      { type: "image", src: I("secure-node.png"), alt: "Logs", caption: "Traceable" },
+    ],
+  },
+  "community/docs": {
+    accent: ACCENT.red, motif: "GATEWAY",
+    media: { type: "video", src: V("infrastructure-loop"), alt: "Docs gateway" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Docs", caption: "Technical" },
+      { type: "image", src: I("data-prism.png"), alt: "Guides", caption: "Builder path" },
+      { type: "image", src: I("graph-chart.png"), alt: "Index", caption: "Connected" },
+    ],
+  },
+  "community/events": {
+    accent: ACCENT.yellow, motif: "EVENTS",
+    media: { type: "video", src: V("protocol-background"), alt: "Community events backdrop" },
+    gallery: [
+      { type: "image", src: I("orbital-ring.png"), alt: "Calendar", caption: "Live calendar" },
+      { type: "image", src: I("crystal-01.png"), alt: "Launch", caption: "Launches" },
+      { type: "image", src: I("cube-01.png"), alt: "Meetups", caption: "Meetups" },
+    ],
+  },
+  "community/support": {
+    accent: ACCENT.blue, motif: "SUPPORT",
+    media: { type: "image", src: I("secure-node.png"), alt: "Support desk node" },
+    gallery: [
+      { type: "image", src: I("secure-node.png"), alt: "Help", caption: "Help desk" },
+      { type: "image", src: I("node-icon.png"), alt: "Channels", caption: "Discord + email" },
+      { type: "image", src: I("protocol-core.png"), alt: "Docs", caption: "Onboarding" },
+    ],
+  },
+  "community/forum": {
+    accent: ACCENT.green, motif: "DISCUSS",
+    media: { type: "video", src: V("validator-mesh"), alt: "Forum discussion mesh" },
+    gallery: [
+      { type: "image", src: I("validator-mesh.png"), alt: "Threads", caption: "Open threads" },
+      { type: "image", src: I("node-icon.png"), alt: "Voices", caption: "Contributors" },
+      { type: "image", src: I("data-prism.png"), alt: "Ideas", caption: "Proposals" },
+    ],
+  },
+  "community/governance": {
+    accent: ACCENT.red, motif: "GOVERNANCE",
+    media: { type: "video", src: V("governance-flow"), alt: "Governance voting flow" },
+    gallery: [
+      { type: "image", src: I("pie-chart.png"), alt: "Votes", caption: "Votes tracked" },
+      { type: "image", src: I("graph-chart.png"), alt: "Proposals", caption: "Proposals" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Network", caption: "Network shaped" },
+    ],
+  },
+  "use-brixs/agent-cli": {
+    accent: ACCENT.purple, motif: "OPERATOR",
+    media: { type: "video", src: V("node-icon"), alt: "Operator CLI node" },
+    gallery: [
+      { type: "image", src: I("node-icon.png"), alt: "CLI", caption: "Terminal power" },
+      { type: "image", src: I("crystal-01.png"), alt: "Agents", caption: "Agent ops" },
+      { type: "image", src: I("secure-node.png"), alt: "Automate", caption: "Automate" },
+    ],
+  },
+  "use-brixs/staking": {
+    accent: ACCENT.green, motif: "STAKING",
+    media: { type: "video", src: V("orbital-ring"), alt: "Staking participation ring" },
+    gallery: [
+      { type: "image", src: I("orbital-ring.png"), alt: "Stake", caption: "Participate" },
+      { type: "image", src: I("graph-chart.png"), alt: "Rewards", caption: "Rewards" },
+      { type: "image", src: I("pie-chart.png"), alt: "Delegation", caption: "Delegation" },
+    ],
+  },
+  "use-brixs/airdrops": {
+    accent: ACCENT.yellow, motif: "CAMPAIGN",
+    media: { type: "video", src: V("crystal-01"), alt: "Airdrop campaign crystal" },
+    gallery: [
+      { type: "image", src: I("crystal-01.png"), alt: "Quest", caption: "Quest driven" },
+      { type: "image", src: I("cube-01.png"), alt: "Rewards", caption: "Rewards" },
+      { type: "image", src: I("graph-chart.png"), alt: "Growth", caption: "Growth" },
+    ],
+  },
+  "use-brixs/portal": {
+    accent: ACCENT.blue, motif: "PORTAL",
+    media: { type: "video", src: V("liquidity-engine"), alt: "Portal bridge and swap engine" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Bridge", caption: "Bridge" },
+      { type: "image", src: I("data-prism.png"), alt: "Swap", caption: "Swap" },
+      { type: "image", src: I("gas-optimization.jpg"), alt: "Manage", caption: "Manage assets" },
+    ],
+  },
+  "use-brixs/wallet": {
+    accent: ACCENT.purple, motif: "WALLET",
+    media: { type: "image", src: I("secure-node.png"), alt: "Brixs wallet node" },
+    gallery: [
+      { type: "image", src: I("secure-node.png"), alt: "Send", caption: "Send" },
+      { type: "image", src: I("node-icon.png"), alt: "Receive", caption: "Receive" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Hold", caption: "Hold assets" },
+    ],
+  },
+  "company/about": {
+    accent: ACCENT.blue, motif: "ABOUT",
+    media: { type: "video", src: V("protocol-background"), alt: "About Brixs backdrop" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Mission", caption: "Mission" },
+      { type: "image", src: I("orbital-ring.png"), alt: "Network", caption: "Network" },
+      { type: "image", src: I("execution-engine.png"), alt: "Team", caption: "The build" },
+    ],
+  },
+  "company/vision": {
+    accent: ACCENT.green, motif: "THESIS",
+    media: { type: "video", src: V("orbital-ring"), alt: "Long-term vision ring" },
+    gallery: [
+      { type: "image", src: I("orbital-ring.png"), alt: "North star", caption: "North star" },
+      { type: "image", src: I("crystal-01.png"), alt: "Future", caption: "Future" },
+      { type: "image", src: I("data-prism.png"), alt: "Connected", caption: "Connected" },
+    ],
+  },
+  "company/whitepaper": {
+    accent: ACCENT.yellow, motif: "THESIS",
+    media: { type: "image", src: I("data-prism.png"), alt: "Whitepaper data prism" },
+    gallery: [
+      { type: "image", src: I("data-prism.png"), alt: "Paper", caption: "Protocol thesis" },
+      { type: "image", src: I("graph-chart.png"), alt: "Claims", caption: "Claims" },
+      { type: "image", src: I("cube-01.png"), alt: "Architecture", caption: "Architecture" },
+    ],
+  },
+  "company/contact": {
+    accent: ACCENT.red, motif: "CONTACT",
+    media: { type: "video", src: V("architecture-rotate"), alt: "Contact the team" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Team", caption: "Reach the team" },
+      { type: "image", src: I("node-icon.png"), alt: "Channels", caption: "Channels" },
+      { type: "image", src: I("secure-node.png"), alt: "Partnerships", caption: "Partnerships" },
+    ],
+  },
+  legal: {
+    accent: ACCENT.blue, motif: "POLICY",
+    media: { type: "image", src: I("protocol-core.png"), alt: "Legal policy core" },
+    gallery: [
+      { type: "image", src: I("protocol-core.png"), alt: "Terms", caption: "Terms" },
+      { type: "image", src: I("data-prism.png"), alt: "Privacy", caption: "Privacy" },
+      { type: "image", src: I("validator-mesh.png"), alt: "Policy", caption: "Policy center" },
+    ],
+  },
+};
+
+// Cleanup: the docs/* group duplicates the deployed docs site (docs.brixs.space),
+// and solutions/crosschain-interop duplicates solutions/interoperability.
+const REMOVED_PAGES = new Set([
+  "docs/core-brixs-chain",
+  "docs/crosschain-interoperability",
+  "docs/wallet-infrastructure",
+  "docs/agglayer-vaultbridge-cdk",
+  "docs/agentic-wallet-cli",
+  "solutions/crosschain-interop",
+]);
+
+export const sitePages: SitePage[] = basePages
+  .filter((page) => !REMOVED_PAGES.has(page.path.join("/")))
+  .map((page, i) => {
+  const key = page.path.join("/");
+  const plan = mediaPlan[key];
+  // Official 3D footage as the hero, one clip per page (model-1..31).
+  const official: MediaItem = {
+    type: "video",
+    src: `/assets/official/model-${(i % 31) + 1}.mp4`,
+    alt: `${page.title} — Brixs 3D render`,
+  };
+  if (!plan) {
+    return { ...page, accent: ACCENT.blue, motif: "BRIXS", gallery: [], media: official };
+  }
+  return { ...page, accent: plan.accent, motif: plan.motif, media: official, gallery: plan.gallery };
+});
 
 export const pageCount = sitePages.length + 1;
 

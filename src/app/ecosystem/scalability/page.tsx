@@ -1,1 +1,163 @@
-"use client"; import Image from "next/image"; import Link from "next/link"; import { useEffect, useState } from "react"; export default function ScalabilityPage() { const [mounted, setMounted] = useState(false); useEffect(() => { setMounted(true); }, []); return ( <main className="min-h-screen bg-[#000000] text-white selection:bg-[#FF3B30] selection:text-black font-sans overflow-x-hidden"> {/* HERO SECTION */} <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 max-w-7xl mx-auto pt-32 pb-32"> <div className="flex flex-col md:flex-row gap-16 items-center"> <div className="w-full md:w-1/2 flex flex-col z-10 opacity-0 animate-[fade-in_1s_ease-out_forwards]"> <h1 className="text-6xl uppercase md:text-8xl uppercase font-black tracking-tighter leading-[0.9] mb-8"> Scale without <br /> <span className="text-white/40">ceilings.</span> </h1> <p className="text-xl md:text-2xl text-gray-400 font-medium tracking-tight mb-12 max-w-lg leading-relaxed"> Horizontal scaling via parallel execution. BRIXS is engineered for infrastructure growth without bottlenecks or centralized constraints. </p> <div className="flex flex-col sm:flex-row gap-6"> <Link href="https://docs.brixs.space/platform/overview" className="px-8 py-4 bg-white text-black ava-cut font-bold text-lg rounded-none inline-flex justify-center hover:scale-[1.02] transition-transform duration-500"> View Architecture </Link> <Link href="/developers/infrastructure" className="px-8 py-4 bg-transparent border border-white/20 text-white font-bold text-lg rounded-none inline-flex justify-center hover:bg-white/5 ava-cut border-l-4 border-l-[#8C5AFC] transition-all duration-500 ease-out"> Explore Infrastructure </Link> </div> </div> <div className="w-full md:w-1/2 relative h-[500px] rounded-none overflow-hidden opacity-0 animate-[fade-in_1s_ease-out_0.5s_forwards]"> <video src="/assets/videos/architecture-rotate.mp4" autoPlay muted loop playsInline className="w-full h-full object-contain mix-blend-screen scale-90 opacity-60" /> <div className="absolute inset-0 bg-gradient-to-r from-[#050505] to-transparent w-1/3" /> <div className="absolute inset-0 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] rounded-none pointer-events-none" /> </div> </div> </section> {/* BENCHMARKS */} <section className="relative py-32 border-y border-white/10 bg-black"> <div className="max-w-7xl mx-auto px-6 md:px-12"> <h2 className="text-5xl uppercase font-black tracking-tighter mb-16">Deterministic Performance.</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"> {[ { label: "Throughput", value: "~2,500", unit: "TPS" }, { label: "Finality", value: "~2", unit: "s" }, { label: "Latency", value: "8", unit: "s" }, { label: "Validator Nodes", value: "15+", unit: "Active" } ].map((stat, i) => ( <div key={i} className="flex flex-col border border-white/10 p-8 rounded-none hover:bg-white/5 ava-cut border-l-4 border-l-[#2B6AFF] transition-all duration-500 ease-out"> <span className="text-gray-500 font-mono text-sm uppercase tracking-widest mb-6">{stat.label}</span> <div className="flex items-baseline gap-2"> <span className="text-5xl uppercase font-black tracking-tighter text-white">{stat.value}</span> <span className="text-[#00D395] font-bold">{stat.unit}</span> </div> </div> ))} </div> </div> </section> {/* PARALLEL EXECUTION */} <section className="relative py-32"> <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16 items-center"> <div className="w-full md:w-1/2"> <h2 className="text-5xl uppercase font-black tracking-tighter mb-8">Parallel by design.</h2> <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-lg"> Unlike traditional blockchains that process transactions sequentially, BRIXS utilizes an Native EVM execution model. Transactions touching independent state objects execute in parallel, entirely eliminating network congestion. </p> <ul className="flex flex-col gap-4 text-white font-medium"> <li className="flex items-center gap-4"> <span className="w-2 h-2 rounded-none bg-[#FFB800]" /> Localized state locking </li> <li className="flex items-center gap-4"> <span className="w-2 h-2 rounded-none bg-[#FF3B30]" /> Dynamic load routing </li> <li className="flex items-center gap-4"> <span className="w-2 h-2 rounded-none bg-[#8C5AFC]" /> Sub-second propagation </li> </ul> </div> <div className="w-full md:w-1/2 rounded-none bg-[#000000] ava-cut border border-white/10 p-8 font-mono text-sm text-gray-300"> <div className="flex gap-2 mb-6"> <div className="w-3 h-3 rounded-none bg-[#FF5F56]/50" /> <div className="w-3 h-3 rounded-none bg-[#FFBD2E]/50" /> <div className="w-3 h-3 rounded-none bg-[#27C93F]/50" /> </div> <pre className="overflow-x-auto whitespace-pre"> <code> {`// BRIXS EVM-Compatible Execution public entry fun transfer( coin: &mut Coin<BRIX>, amount: u64, recipient: address, ctx: &mut TxContext ) { let split_coin = coin::split(coin, amount, ctx); transfer::public_transfer(split_coin, recipient); }`} </code> </pre> </div> </div> </section> {/* CTA */} <section className="relative py-32 bg-[#2B6AFF] text-white overflow-hidden"> <div className="absolute inset-0 opacity-20"> <Image src="/assets/backgrounds/blueprint-bg.png" alt="Blueprint" fill className="object-contain mix-blend-screen scale-90" /> </div> <div className="max-w-4xl mx-auto px-6 text-center relative z-10 flex flex-col items-center"> <h2 className="text-5xl uppercase md:text-7xl uppercase font-black tracking-tighter mb-8 leading-[0.9]"> Build at global scale. </h2> <p className="text-xl font-medium text-white/80 mb-12 max-w-xl leading-relaxed text-balance"> Deploy your high-throughput application on BRIXS in minutes. </p> <Link href="https://docs.brixs.space/" className="px-10 py-5 bg-black text-white font-bold text-lg rounded-none inline-flex hover:scale-[1.02] transition-transform duration-500 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.05),0_0_0_1px_rgba(255,255,255,0.05),0_12px_34px_rgba(0,0,0,0.5)]"> Start Building </Link> </div> </section> <style dangerouslySetInnerHTML={{__html: ` @keyframes fade-in { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } } `}} /> </main> ); } 
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import BrxFooter from "@/components/BrxFooter";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Boxes,
+  Cpu,
+  Gauge,
+  GitBranch,
+  Layers,
+  Network,
+  Route,
+  Timer,
+  Workflow,
+  Zap,
+} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Scalability | Brixs Chain",
+  description:
+    "Brixs scales horizontally through parallel execution — high throughput, fast finality, and low latency without bottlenecks or centralized constraints.",
+};
+
+const features: [typeof Zap, string, string][] = [
+  [Layers, "Parallel execution", "Transactions touching independent state objects execute in parallel, eliminating network congestion."],
+  [Cpu, "Native EVM model", "An EVM-compatible execution engine runs contracts without sequential bottlenecks."],
+  [GitBranch, "Localized state locking", "Only the state a transaction touches is locked, keeping unrelated work moving."],
+  [Route, "Dynamic load routing", "Work is routed across the network to balance load and avoid hot spots."],
+  [Timer, "Sub-second propagation", "Blocks and state updates propagate across validators in under a second."],
+  [Workflow, "Horizontal scaling", "The network grows by adding capacity, not by raising fees or centralizing control."],
+];
+
+export default function ScalabilityPage() {
+  return (
+    <main className="brx-page" style={{ "--accent": "#00d395" } as React.CSSProperties}>
+      {/* HERO — centered */}
+      <section className="brx-h-center">
+        <div className="brx-h-center-bg" aria-hidden="true">
+          <video src="/assets/official/model-10.mp4" autoPlay muted loop playsInline />
+        </div>
+        <span className="brx-ph-eyebrow">
+          <Gauge size={14} /> Ecosystem · Scalability
+        </span>
+        <h1>
+          Scale without <em>ceilings.</em>
+        </h1>
+        <p className="brx-ph-lead">
+          Horizontal scaling via parallel execution. Brixs is engineered for
+          infrastructure growth without bottlenecks or centralized constraints —
+          high throughput, fast finality, and low latency by design.
+        </p>
+        <div className="brx-ph-actions">
+          <a className="brx-btn accent" href="https://docs.brixs.space/platform/overview" target="_blank" rel="noopener noreferrer">
+            View architecture <ArrowRight size={16} />
+          </a>
+          <Link className="brx-btn-line" href="/developers/infrastructure">
+            Explore infrastructure <ArrowUpRight size={16} />
+          </Link>
+        </div>
+        <div className="brx-ph-stats">
+          {[["~2,500", "TPS throughput"], ["~2s", "Block finality"], ["15+", "Active validators"]].map(([v, l]) => (
+            <div className="brx-stat" key={l}>
+              <b>{v}</b>
+              <span>{l}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* METRICS */}
+      <section className="brx-section">
+        <div className="brx-section-head">
+          <p className="brx-eyebrow">Deterministic performance</p>
+          <h2>Benchmarked, not promised.</h2>
+        </div>
+        <div className="brx-metrics">
+          {[["~2,500 TPS", "Sustained throughput"], ["~2s", "Time to finality"], ["8s", "End-to-end latency"]].map(([v, l]) => (
+            <div className="brx-metric" key={l}><b>{v}</b><span>{l}</span></div>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURE — rows */}
+      <section className="brx-section">
+        <div className="brx-section-head">
+          <p className="brx-eyebrow">How it scales</p>
+          <h2>Parallel by design.</h2>
+          <p>
+            Unlike chains that process transactions sequentially, Brixs runs a
+            native EVM execution model where independent work moves at once.
+          </p>
+        </div>
+        <div className="brx-frows">
+          {features.map(([Ico, title, desc], i) => (
+            <div className="brx-frow" key={title}>
+              <small>{String(i + 1).padStart(2, "0")}</small>
+              <p>
+                {title}
+                <span style={{ display: "block", fontSize: 14, fontWeight: 400, color: "#59606a", marginTop: 4, letterSpacing: 0 }}>{desc}</span>
+              </p>
+              <span className="brx-frow-ico"><Ico size={20} /></span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* GALLERY — mosaic */}
+      <section className="brx-section gray">
+        <div className="brx-section-head">
+          <p className="brx-eyebrow">Visual surface</p>
+          <h2>Scaling in the system.</h2>
+        </div>
+        <div className="brx-gmosaic">
+          {[
+            ["/assets/3d-assets/graph-chart.png", "Throughput scaling"],
+            ["/assets/3d-assets/parallel-execution.jpg", "Parallel execution"],
+            ["/assets/3d-assets/gas-optimization.jpg", "Gas optimization"],
+          ].map(([src, cap]) => (
+            <figure className="brx-shot" key={src}>
+              <Image src={src} alt={cap} width={1200} height={900} />
+              <figcaption>{cap}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      {/* BAND — split */}
+      <section className="brx-band-split" style={{ "--i": "#0f1115" } as React.CSSProperties}>
+        <div>
+          <p className="brx-eyebrow">No bottlenecks</p>
+          <h2>Growth without congestion.</h2>
+        </div>
+        <p>
+          Transactions touching independent state objects execute in parallel,
+          entirely eliminating network congestion. Localized state locking,
+          dynamic load routing, and sub-second propagation let the network add
+          capacity horizontally — so throughput scales without raising fees or
+          centralizing control.
+        </p>
+      </section>
+
+      {/* CTA */}
+      <section className="brx-cta" style={{ background: "#00d395", color: "#06121f" }}>
+        <p className="brx-kicker" style={{ color: "rgba(6,18,31,.7)" }}><b /> The Brixs network</p>
+        <h2>
+          Build at global <em>scale.</em>
+        </h2>
+        <nav>
+          <a className="brx-btn" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer" style={{ background: "#06121f", color: "#fff" }}>
+            Start building <ArrowRight size={16} />
+          </a>
+          <Link className="brx-btn" href="/ecosystem/tokenomics" style={{ background: "#fff", color: "#06121f" }}>
+            Explore tokenomics <Boxes size={16} />
+          </Link>
+        </nav>
+      </section>
+
+      <BrxFooter />
+    </main>
+  );
+}
