@@ -125,7 +125,7 @@ export default function InfrastructurePage() {
   network: "brixs-testnet",
   `}<span className="k">chainId</span>{`: 10102,
   role: "validator",       `}<span className="c">// rpc | sequencer | validator</span>{`
-  rpc: "https://rpc.brixs.space",
+  rpc: "https://rpc-testnet.brixs.space",
   settlement: "ethereum",
   targets: {
     throughput: "500_000/s",  `}<span className="c">// API requests per second</span>{`

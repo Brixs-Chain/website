@@ -119,7 +119,7 @@ export default function BrxFooter() {
               </div>
               <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-3 border-t border-[#22252a] pt-3 gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Testnet RPC</span>
-                <span className="font-mono text-white select-all break-all">https://testnet.brixs.space</span>
+                <span className="font-mono text-white select-all break-all">https://rpc-testnet.brixs.space</span>
               </div>
               <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Chain ID</span>
