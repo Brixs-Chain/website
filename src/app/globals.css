@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --i: #0f1115;
@@ -9,6 +10,23 @@
   --green: #00d395;
   --gray: #f4f5f7;
   --l: #e2e4e9;
+  --btn-text: #ffffff;
+  --hero-art-bg: #e6fff4;
+  --footer-link: #555555;
+}
+
+html.dark {
+  --i: #ffffff;
+  --p: #0a0a0b;
+  --b: #2b6aff;
+  --m: #ff3b30;
+  --yellow: #ffb800;
+  --green: #00d395;
+  --gray: #12141a;
+  --l: #1e1e1e;
+  --btn-text: #0a0a0b;
+  --hero-art-bg: #002214;
+  --footer-link: #e1e4e8;
 }
 
 * {
@@ -226,7 +244,7 @@ a {
 }
 .brx-dark-btn {
   background: var(--i);
-  color: #fff;
+  color: var(--btn-text);
 }
 .brx-dark-btn:hover,
 .brx-light-btn:hover {
@@ -252,7 +270,7 @@ a {
   );
   border: 3px solid var(--green);
   min-height: 570px;
-  background: #e6fff4;
+  background: var(--hero-art-bg);
   border-radius: 0;
   overflow: hidden;
   position: relative;
@@ -864,7 +882,7 @@ a {
     border: 3px solid var(--green);
     min-height: 380px;
     border-radius: 0;
-    width: 39px;
+    width: 100%;
   }
   .brx-hero-art > p {
     font-size: 10px;
@@ -1414,6 +1432,10 @@ h3 {
   color: var(--accent);
   font-style: normal;
 }
+/* When CTA has an accent background (using inline styles), make the text white so it's not invisible */
+.brx-cta[style] h2 em {
+  color: #fff !important;
+}
 .brx-cta nav {
   display: flex;
   justify-content: center;
@@ -1538,6 +1560,39 @@ h3 {
   font: 700 10px/1 ui-monospace, monospace;
   letter-spacing: 0.18em;
   padding: 8px 12px;
+}
+.brx-rise h1 {
+  margin: 16px 0 0;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-transform: none !important;
+}
+.brx-rise h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.brx-rise .brx-ph-lead {
+  margin-top: 24px;
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.6;
+  opacity: 0.85;
+}
+.brx-rise .brx-ph-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.brx-rise .brx-ph-actions {
+  margin-top: 32px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 /* ---------- HERO: centered (copy over faint backdrop) ---------- */

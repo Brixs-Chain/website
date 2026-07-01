@@ -156,18 +156,19 @@ function HeroCentered({ page, meta }: { page: SitePage; meta: GroupMeta }) {
   const MetaIcon = meta.icon;
   return (
     <section className="brx-h-center">
-      <div className="brx-h-center-bg" aria-hidden="true"><Media item={page.media} priority /></div>
-      <span className="brx-ph-eyebrow"><MetaIcon size={14} /> {meta.label}</span>
-      <h1>{titleEm(page.title)}</h1>
-      <p className="brx-ph-lead">{page.summary}</p>
-      <div className="brx-ph-actions">
-        <Link className="brx-btn accent" href={meta.href}>{meta.cta} <ArrowRight size={16} /></Link>
-        <Link className="brx-btn-line" href="/">Back to overview <ArrowUpRight size={16} /></Link>
-      </div>
-      <div className="brx-ph-stats">
-        {page.stats.map(([v, l]) => (
-          <div className="brx-stat" key={l + v}><b>{v}</b><span>{l}</span></div>
-        ))}
+      <div className="brx-rise" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <span className="brx-ph-eyebrow"><MetaIcon size={14} /> {meta.label}</span>
+        <h1>{titleEm(page.title)}</h1>
+        <p className="brx-ph-lead">{page.summary}</p>
+        <div className="brx-ph-actions">
+          <Link className="brx-btn accent" href={meta.href}>{meta.cta} <ArrowRight size={16} /></Link>
+          <Link className="brx-btn-line" href="/">Back to overview <ArrowUpRight size={16} /></Link>
+        </div>
+        <div className="brx-ph-stats">
+          {page.stats.map(([v, l]) => (
+            <div className="brx-stat" key={l + v}><b>{v}</b><span>{l}</span></div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -176,16 +177,11 @@ function HeroCentered({ page, meta }: { page: SitePage; meta: GroupMeta }) {
 function HeroStage({ page, meta }: { page: SitePage; meta: GroupMeta }) {
   const MetaIcon = meta.icon;
   return (
-    <section className="brx-h-stage">
-      <div className="brx-h-stage-media" aria-hidden="true"><Media item={page.media} priority /></div>
-      <div className="brx-rise">
-        <span className="brx-ph-eyebrow"><MetaIcon size={14} /> {meta.label}</span>
-        <h1>{titleEm(page.title)}</h1>
-        <p className="brx-ph-lead">{page.summary}</p>
-        <div className="brx-ph-actions">
-          <Link className="brx-btn accent" href={meta.href}>{meta.cta} <ArrowRight size={16} /></Link>
-          <Link className="brx-btn" href="/" style={{ background: "#fff", color: "#06121f" }}>Overview <ArrowUpRight size={16} /></Link>
-        </div>
+    <section className="brx-h-media">
+      <HeroCopy page={page} meta={meta} />
+      <div className="brx-h-media-frame">
+        <Media item={page.media} priority />
+        <span className="brx-tag">BRX / {page.motif}</span>
       </div>
     </section>
   );
@@ -337,63 +333,100 @@ function Feature({ page, variant, gray }: { page: SitePage; variant: string; gra
   );
 }
 
-/* ---------------- GALLERY VARIANTS ---------------- */
+/* ---------------- GALLERY REPLACEMENT (DATA VISUALIZATION) ---------------- */
 function Gallery({ page, variant, gray }: { page: SitePage; variant: string; gray?: boolean }) {
   const shots = page.gallery;
   if (shots.length === 0) return null;
-  const head = <Head eyebrow="Visual surface" title={<>{page.title} in the system</>} sub="Distinct compositions drawn from the Brixs 3D asset library — every page reads like its own chapter." />;
-  if (variant === "band") {
-    const hero = page.media.type === "video" ? page.media : shots[0];
+  const head = <Head eyebrow="System Architecture" title={<>{page.title} Visualization</>} sub="Real-time telemetry, distribution metrics, and structural diagrams." />;
+  
+  if (variant === "band" || variant === "strip") {
+    // Flowchart Diagram
     return (
       <section className={`brx-section${gray ? " gray" : ""}`}>
         {head}
-        <div className="brx-gband">
-          <Media item={hero} />
-          <span className="brx-gband-cap">{page.motif} — live surface</span>
+        <div className="w-full rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5 p-8 flex flex-col md:flex-row items-center justify-between gap-4 mt-8">
+          {[
+            { icon: Database, label: "Input Data", value: "24.5k ops/s" },
+            { icon: ArrowRight, label: "", value: "" },
+            { icon: Cpu, label: "Processing Core", value: "< 2ms latency" },
+            { icon: ArrowRight, label: "", value: "" },
+            { icon: Network, label: "Output Node", value: "100% Verified" }
+          ].map((node, i) => (
+            <div key={i} className="flex flex-col items-center text-center gap-2">
+              {node.label ? (
+                <div className="size-20 rounded-xl bg-white border border-[#0f1115]/10 flex items-center justify-center shadow-sm">
+                  <node.icon size={32} className="text-[#2b6aff]" />
+                </div>
+              ) : (
+                <node.icon size={24} className="text-[#0f1115]/30 rotate-90 md:rotate-0" />
+              )}
+              {node.label && (
+                <div>
+                  <div className="text-sm font-semibold text-[#0f1115]">{node.label}</div>
+                  <div className="text-xs text-[#0f1115]/60 mt-1">{node.value}</div>
+                </div>
+              )}
+            </div>
+          ))}
         </div>
       </section>
     );
   }
+
   if (variant === "mosaic") {
+    // Pie Chart & Stats
     return (
       <section className={`brx-section${gray ? " gray" : ""}`}>
         {head}
-        <div className="brx-gmosaic">
-          {shots.map((s) => (
-            <figure className="brx-shot" key={s.src + (s.caption ?? "")}>
-              <Media item={s} />
-              {s.caption && <figcaption>{s.caption}</figcaption>}
-            </figure>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          <div className="rounded-2xl border border-[#0f1115]/10 bg-white p-8 flex items-center justify-center shadow-sm">
+            <div className="relative size-48 rounded-full border-[16px] border-[#0f1115]/5 border-t-[#2b6aff] border-r-[#00d395] flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-[#0f1115]">100%</div>
+                <div className="text-xs text-[#0f1115]/60 uppercase tracking-widest mt-1">Uptime</div>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            {shots.map((s, i) => (
+              <div key={i} className="flex items-center gap-4 rounded-xl border border-[#0f1115]/10 bg-[#0f1115]/5 p-4">
+                <div className="size-10 rounded-lg bg-white border border-[#0f1115]/10 flex items-center justify-center shadow-sm text-[#0f1115]">
+                  <Activity size={18} />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-[#0f1115]">{s.caption || `Metric ${i + 1}`}</div>
+                  <div className="text-xs text-[#0f1115]/60">Optimized for maximum efficiency</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     );
   }
-  if (variant === "strip") {
-    return (
-      <section className={`brx-section${gray ? " gray" : ""}`}>
-        {head}
-        <div className="brx-gstrip">
-          {[page.media, ...shots].map((s, i) => (
-            <figure className="brx-shot" key={s.src + i}>
-              <Media item={s} />
-              {"caption" in s && s.caption && <figcaption>{s.caption}</figcaption>}
-            </figure>
-          ))}
-        </div>
-      </section>
-    );
-  }
-  // trio / feature
+
+  // trio / feature -> Bento Diagram
   return (
     <section className={`brx-section${gray ? " gray" : ""}`}>
       {head}
-      <div className={`brx-gallery${variant === "feature" ? " feature" : ""}`}>
-        {shots.map((s) => (
-          <figure className="brx-shot" key={s.src + (s.caption ?? "")}>
-            <Media item={s} />
-            {s.caption && <figcaption>{s.caption}</figcaption>}
-          </figure>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+        {shots.map((s, i) => (
+          <div key={i} className="rounded-2xl border border-[#0f1115]/10 bg-white p-6 flex flex-col justify-between shadow-sm relative overflow-hidden group hover:border-[#0f1115]/20 transition-colors">
+            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Boxes size={120} className="text-[#0f1115]" />
+            </div>
+            <div>
+              <div className="text-sm font-semibold text-[#2b6aff] mb-2">{s.caption || `Component ${i + 1}`}</div>
+              <h3 className="text-xl font-bold text-[#0f1115] mb-2">System Integration</h3>
+              <p className="text-sm text-[#0f1115]/60 leading-relaxed">
+                Seamlessly integrated module ensuring high throughput and strict security parameters across the network.
+              </p>
+            </div>
+            <div className="mt-6 pt-4 border-t border-[#0f1115]/10 flex items-center justify-between text-xs font-mono text-[#0f1115]/50 uppercase tracking-widest">
+              <span>Status: Active</span>
+              <span className="flex items-center gap-1"><div className="size-1.5 rounded-full bg-[#00d395]"></div> Live</span>
+            </div>
+          </div>
         ))}
       </div>
     </section>

@@ -136,17 +136,28 @@ export default function ConsensusPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>Consensus in the system.</h2>
         </div>
-        <div className="brx-gallery">
-          {[
-            ["/assets/3d-assets/validator-mesh.png", "Validator mesh"],
-            ["/assets/3d-assets/node-icon.png", "Consensus node"],
-            ["/assets/3d-assets/secure-node.png", "Secure finality"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] text-center relative group transition hover:border-white/30">
+            <div className="size-16 rounded-full border border-[#0f1115]/20 bg-[#0f1115]/5 flex items-center justify-center text-[#8c5afc] group-hover:scale-110 transition-transform">
+              <Network size={28} />
+            </div>
+            <h3 className="text-[#0f1115] font-medium">Validator Mesh</h3>
+            <p className="text-[#0f1115]/60 text-sm">Highly interconnected nodes coordinating rounds.</p>
+          </div>
+          <div className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] text-center relative group transition hover:border-white/30">
+            <div className="size-16 rounded-full border border-[#0f1115]/20 bg-[#0f1115]/5 flex items-center justify-center text-[#8c5afc] group-hover:scale-110 transition-transform">
+              <Server size={28} />
+            </div>
+            <h3 className="text-[#0f1115] font-medium">Consensus Node</h3>
+            <p className="text-[#0f1115]/60 text-sm">Participates in state validation.</p>
+          </div>
+          <div className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] text-center relative group transition hover:border-white/30">
+            <div className="size-16 rounded-full border border-[#0f1115]/20 bg-[#0f1115]/5 flex items-center justify-center text-[#8c5afc] group-hover:scale-110 transition-transform">
+              <Shield size={28} />
+            </div>
+            <h3 className="text-[#0f1115] font-medium">Secure Finality</h3>
+            <p className="text-[#0f1115]/60 text-sm">Deterministic execution locks and settlement.</p>
+          </div>
         </div>
       </section>
 

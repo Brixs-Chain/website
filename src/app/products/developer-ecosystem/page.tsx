@@ -41,7 +41,7 @@ export default function DeveloperEcosystemPage() {
   return (
     <main className="brx-page" style={{ "--accent": "#2b6aff" } as React.CSSProperties}>
       {/* HERO */}
-      <section className="brx-h-mosaic">
+      <section className="brx-h-media">
         <div className="brx-rise">
           <span className="brx-ph-eyebrow">
             <Terminal size={14} /> Products · Developer Ecosystem
@@ -72,16 +72,9 @@ export default function DeveloperEcosystemPage() {
           </div>
         </div>
 
-        <div className="brx-h-mosaic-grid">
-          <figure>
-            <video src="/assets/official/model-2.mp4" autoPlay muted loop playsInline />
-          </figure>
-          <figure>
-            <Image src="/assets/3d-assets/node-icon.png" alt="Local node" width={1200} height={900} />
-          </figure>
-          <figure>
-            <Image src="/assets/3d-assets/data-prism.png" alt="SDK data prism" width={1200} height={900} />
-          </figure>
+        <div className="brx-h-media-frame">
+          <video src="/assets/official/model-2.mp4" autoPlay muted loop playsInline />
+          <span className="brx-tag">BRX / SDK</span>
         </div>
       </section>
 
@@ -145,17 +138,49 @@ $ brixs deploy --network testnet
           <h2>Tooling that ships with you.</h2>
           <p>Official extensions for VS Code and IntelliJ bring the chain into your editor.</p>
         </div>
-        <div className="brx-gstrip">
-          {[
-            ["/assets/3d-assets/crystal-01.png", "Real-time formal verification"],
-            ["/assets/3d-assets/cube-01.png", "Gas profiling on hover"],
-            ["/assets/3d-assets/protocol-core.png", "1-click testnet deployment"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-4xl mx-auto mt-12 rounded-2xl overflow-hidden border border-white/10 bg-[#0f1115] shadow-2xl">
+          <div className="bg-black/40 px-4 py-3 flex items-center gap-2 border-b border-white/5">
+            <div className="size-3 rounded-full bg-red-500/80"></div>
+            <div className="size-3 rounded-full bg-yellow-500/80"></div>
+            <div className="size-3 rounded-full bg-green-500/80"></div>
+            <span className="ml-4 text-xs font-mono text-white/30 tracking-wider">contract.sol — VS Code</span>
+          </div>
+          <div className="p-6 font-mono text-sm leading-relaxed overflow-x-auto relative">
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">1</span>
+              <span className="text-[#2b6aff]">pragma</span>
+              <span className="text-white ml-2">solidity ^0.8.20;</span>
+            </div>
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">2</span>
+            </div>
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">3</span>
+              <span className="text-[#2b6aff]">contract</span>
+              <span className="text-white ml-2">BrixsVault {'{'}</span>
+            </div>
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">4</span>
+              <span className="text-white ml-8 group relative cursor-pointer inline-block">
+                <span className="text-[#00d395]">function</span> deposit() <span className="text-[#00d395]">external</span> <span className="text-[#00d395]">payable</span> {'{'}
+                <div className="absolute -top-10 left-0 bg-[#2b6aff] text-white text-xs px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10 pointer-events-none shadow-lg border border-white/20">
+                  Gas Estimate: 21,400 (~$0.001)
+                </div>
+              </span>
+            </div>
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">5</span>
+              <span className="text-white/40 ml-16">// Logic executes in parallel on Brixs Native EVM</span>
+            </div>
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">6</span>
+              <span className="text-white ml-8">{'}'}</span>
+            </div>
+            <div className="flex">
+              <span className="text-white/20 w-8 select-none">7</span>
+              <span className="text-white">{'}'}</span>
+            </div>
+          </div>
         </div>
         <div className="brx-pillars" style={{ marginTop: 24 }}>
           {ide.map(([Ico, title, desc]) => (

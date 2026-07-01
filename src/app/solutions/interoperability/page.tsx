@@ -33,37 +33,32 @@ const features: [typeof Network, string, string][] = [
 export default function InteroperabilityPage() {
   return (
     <main className="brx-page" style={{ "--accent": "#00d395" } as React.CSSProperties}>
-      {/* HERO — centered */}
-      <section className="brx-h-center">
-        <div className="brx-h-center-bg" aria-hidden="true">
+      {/* HERO — media */}
+      <section className="brx-h-media">
+        <div className="brx-rise">
+          <span className="brx-ph-eyebrow">
+            <Network size={14} /> Solutions · Interoperability
+          </span>
+          <h1>
+            Liquidity should move like <em>information.</em>
+          </h1>
+          <p className="brx-ph-lead">
+            Brixs connects fragmented blockchain ecosystems into one seamless
+            execution and liquidity environment — cross-chain messaging, bridge
+            abstraction, and instant routing, with no manual chain switching.
+          </p>
+          <div className="brx-ph-actions">
+            <Link className="brx-btn accent" href="/solutions/architecture">
+              Explore architecture <ArrowRight size={16} />
+            </Link>
+            <a className="brx-btn-line" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer">
+              Build cross-chain apps <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
+        <div className="brx-h-media-frame">
           <video src="/assets/official/model-5.mp4" autoPlay muted loop playsInline />
-        </div>
-        <span className="brx-ph-eyebrow">
-          <Network size={14} /> Solutions · Interoperability
-        </span>
-        <h1>
-          Liquidity should move like <em>information.</em>
-        </h1>
-        <p className="brx-ph-lead">
-          Brixs connects fragmented blockchain ecosystems into one seamless
-          execution and liquidity environment — cross-chain messaging, bridge
-          abstraction, and instant routing, with no manual chain switching.
-        </p>
-        <div className="brx-ph-actions">
-          <Link className="brx-btn accent" href="/solutions/architecture">
-            Explore architecture <ArrowRight size={16} />
-          </Link>
-          <a className="brx-btn-line" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer">
-            Build cross-chain apps <ArrowUpRight size={16} />
-          </a>
-        </div>
-        <div className="brx-ph-stats">
-          {[["8", "Connected ecosystems"], ["1", "Unified liquidity layer"], ["10102", "Testnet chain ID"]].map(([v, l]) => (
-            <div className="brx-stat" key={l}>
-              <b>{v}</b>
-              <span>{l}</span>
-            </div>
-          ))}
+          <span className="brx-tag">BRX / INTEROPERABILITY</span>
         </div>
       </section>
 
@@ -105,16 +100,23 @@ export default function InteroperabilityPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>Cross-chain, in the system.</h2>
         </div>
-        <div className="brx-gallery">
+        <div className="max-w-4xl mx-auto mt-12 w-full overflow-hidden rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5">
+          <div className="grid grid-cols-3 border-b border-[#0f1115]/10 bg-[#0f1115]/5 text-sm font-medium text-[#0f1115] p-5">
+            <div>Cross-Chain Feature</div>
+            <div className="text-[#0f1115]/60">Traditional Bridges</div>
+            <div className="text-[#00d395]">Brixs Interoperability</div>
+          </div>
           {[
-            ["/assets/3d-assets/orbital-ring.png", "Chain connection ring"],
-            ["/assets/3d-assets/validator-mesh.png", "Validator relay mesh"],
-            ["/assets/3d-assets/data-prism.png", "Message proof relay"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
+            ["Liquidity", "Fragmented across isolated pools", "Unified native liquidity layer"],
+            ["Execution", "Multiple smart contract approvals", "Single unified transaction"],
+            ["Security", "Third-party multi-sig validators", "Ethereum-backed finality proofs"],
+            ["User Experience", "Manual network switching required", "Completely abstracted chain selection"]
+          ].map(([feat, trad, brix], i) => (
+            <div key={i} className="grid grid-cols-3 border-b border-white/5 p-5 text-sm hover:bg-white/[0.02] transition items-center">
+              <div className="text-[#0f1115] font-medium">{feat}</div>
+              <div className="text-[#0f1115]/50">{trad}</div>
+              <div className="text-[#0f1115]">{brix}</div>
+            </div>
           ))}
         </div>
       </section>

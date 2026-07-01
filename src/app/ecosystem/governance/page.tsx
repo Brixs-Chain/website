@@ -241,16 +241,19 @@ export default function GovernancePage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>Governance in the system.</h2>
         </div>
-        <div className="brx-gallery">
-          {[
-            ["/assets/3d-assets/pie-chart.png", "Vote distribution"],
-            ["/assets/3d-assets/graph-chart.png", "Proposal volume"],
-            ["/assets/3d-assets/validator-mesh.png", "Validator set"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
+        <div className="max-w-6xl mx-auto mt-12 flex flex-col md:flex-row items-center justify-between gap-4 px-5">
+          {["Proposal Drafted", "Validator Review", "Community Vote", "On-Chain Upgrade"].map((step, i, arr) => (
+            <div key={step} className="flex flex-col md:flex-row items-center gap-4 w-full">
+              <div className="flex-1 w-full border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-6 rounded-2xl text-center flex flex-col gap-3 transition hover:bg-[#0f1115]/5 hover:-translate-y-1">
+                <span className="text-[#2b6aff] font-mono text-[10px] uppercase tracking-[0.2em] bg-[#2b6aff]/10 px-2 py-1 rounded-full w-fit mx-auto">Phase 0{i + 1}</span>
+                <span className="text-[#0f1115] font-medium text-lg">{step}</span>
+              </div>
+              {i < arr.length - 1 && (
+                <div className="text-[#0f1115]/20 rotate-90 md:rotate-0 flex-shrink-0">
+                  <ArrowRight size={24} />
+                </div>
+              )}
+            </div>
           ))}
         </div>
       </section>

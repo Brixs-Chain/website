@@ -1,0 +1,28 @@
+
+> codenest@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.29.243:3000
+✓ Ready in 1017ms
+
+○ Compiling /solutions/architecture ...
+ GET /solutions/architecture 200 in 6.2s (next.js: 5.7s, application-code: 509ms)
+ GET / 200 in 1512ms (next.js: 949ms, application-code: 563ms)
+ GET / 200 in 401ms (next.js: 9ms, application-code: 392ms)
+ GET /ecosystem/governance 200 in 3.3s (next.js: 2.4s, application-code: 930ms)
+ GET / 200 in 1162ms (next.js: 298ms, application-code: 864ms)
+○ Compiling /cli ...
+ GET /cli 200 in 10.7s (next.js: 9.8s, application-code: 965ms)
+ GET /use-brixs/agent-cli 200 in 13.2s (next.js: 10.7s, generate-params: 2.6s, application-code: 2.5s)
+ GET /use-brixs/agent-cli 200 in 552ms (next.js: 174ms, generate-params: 61ms, application-code: 379ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+○ Compiling /products/native-evm ...
+ GET /products/native-evm 200 in 6.1s (next.js: 5.1s, application-code: 999ms)
+ GET /products/native-evm 200 in 1432ms (next.js: 257ms, application-code: 1174ms)
+ GET / 200 in 204ms (next.js: 40ms, application-code: 165ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /solutions/architecture 200 in 136ms (next.js: 13ms, application-code: 123ms)
+ GET / 200 in 1881ms (next.js: 192ms, application-code: 1689ms)
+ GET /products/native-evm 200 in 861ms (next.js: 322ms, application-code: 538ms)

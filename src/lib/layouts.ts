@@ -35,7 +35,7 @@ export const layouts: Record<string, Block[]> = {
     { type: "cta", variant: "dark" },
   ],
   "solutions/wallet-infrastructure": [
-    { type: "hero", variant: "mosaic" },
+    { type: "hero", variant: "split-media" },
     { type: "band", variant: "dark" },
     { type: "feature", variant: "pillars" },
     { type: "gallery", variant: "trio" },
@@ -105,7 +105,7 @@ export const layouts: Record<string, Block[]> = {
     { type: "cta", variant: "accent" },
   ],
   "use-cases/agentic-ai": [
-    { type: "hero", variant: "mosaic" },
+    { type: "hero", variant: "split-media" },
     { type: "band", variant: "dark" },
     { type: "feature", variant: "matrix" },
     { type: "gallery", variant: "strip" },
@@ -244,7 +244,7 @@ export const layouts: Record<string, Block[]> = {
     { type: "cta", variant: "split" },
   ],
   "community/forum": [
-    { type: "hero", variant: "mosaic" },
+    { type: "hero", variant: "split-media" },
     { type: "band", variant: "dark" },
     { type: "feature", variant: "cards" },
     { type: "gallery", variant: "strip" },
@@ -296,7 +296,7 @@ export const layouts: Record<string, Block[]> = {
     { type: "cta", variant: "dark" },
   ],
   "use-brixs/portal": [
-    { type: "hero", variant: "mosaic" },
+    { type: "hero", variant: "split-media" },
     { type: "band", variant: "split" },
     { type: "feature", variant: "matrix" },
     { type: "gallery", variant: "mosaic" },
@@ -360,7 +360,7 @@ export const layouts: Record<string, Block[]> = {
     { type: "cta", variant: "split" },
   ],
   "company/contact": [
-    { type: "hero", variant: "mosaic" },
+    { type: "hero", variant: "split-media" },
     { type: "band", variant: "accent" },
     { type: "feature", variant: "cards" },
     { type: "gallery", variant: "strip" },

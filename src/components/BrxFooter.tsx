@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const SocialIcon = ({ href, children }: { href: string, children: React.ReactNode }) => (
   <Link href={href} className="text-[#8c93a2] hover:text-white transition-colors duration-200">
@@ -9,17 +13,36 @@ const SocialIcon = ({ href, children }: { href: string, children: React.ReactNod
 );
 
 export default function BrxFooter() {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = mounted ? theme : "light";
+
   return (
     <footer className="bg-[#0a0a0b] text-[#8c93a2] w-full text-sm font-sans border-t border-[#1e1e1e]">
       {/* Top Header */}
       <div className="grid grid-cols-1 md:grid-cols-4 border-b border-[#1e1e1e]">
         <div className="p-6 md:p-8 flex items-center justify-between border-b md:border-b-0 md:border-r border-[#1e1e1e] md:col-span-1">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/full_logo_black_on_white.png" alt="BRIXS" width={200} height={57} className="h-10 w-auto brightness-0 invert" />
+            <Image src="/branding-kit/full_logo_white_on_black.png" alt="BRIXS" width={200} height={57} className="h-10 w-auto rounded" />
           </Link>
           <div className="flex bg-[#1e1e1e] p-1 rounded-md">
-            <button className="p-1.5 text-white bg-[#333] rounded"><Moon size={16} /></button>
-            <button className="p-1.5 text-gray-500 hover:text-white"><Sun size={16} /></button>
+            <button 
+              onClick={() => setTheme("dark")}
+              className={`p-1.5 rounded transition ${currentTheme === 'dark' ? 'text-white bg-[#333]' : 'text-gray-500 hover:text-white'}`}
+            >
+              <Moon size={16} />
+            </button>
+            <button 
+              onClick={() => setTheme("light")}
+              className={`p-1.5 rounded transition ${currentTheme === 'light' ? 'text-white bg-[#333] shadow-sm' : 'text-gray-500 hover:text-white'}`}
+            >
+              <Sun size={16} />
+            </button>
           </div>
         </div>
         <div className="p-6 md:p-8 flex flex-col justify-center items-center md:items-end md:col-span-3">
@@ -34,7 +57,7 @@ export default function BrxFooter() {
       </div>
 
       {/* Main Grid Content */}
-      <div className="grid grid-cols-1 md:grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-4">
         {/* Column 1 */}
         <div className="p-6 md:p-8 md:border-r border-[#1e1e1e] flex flex-col gap-6">
           <div>
@@ -90,19 +113,19 @@ export default function BrxFooter() {
           <div className="mt-10 pt-8 border-t border-[#1e1e1e]/50">
             <h3 className="font-bold text-[#ffb800] mb-5 text-[11px] uppercase tracking-wider">Testnet RPC Details</h3>
             <div className="bg-[#111317] p-5 rounded-md border border-[#22252a] flex flex-col gap-3 text-xs">
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Status</span>
                 <span className="text-[#ffb800] font-bold">LIVE (TESTNET ONLY)</span>
               </div>
-              <div className="flex justify-between items-center mt-3 border-t border-[#22252a] pt-3">
+              <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-3 border-t border-[#22252a] pt-3 gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Testnet RPC</span>
-                <span className="font-mono text-white select-all">https://testnet.brixs.space</span>
+                <span className="font-mono text-white select-all break-all">https://testnet.brixs.space</span>
               </div>
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Chain ID</span>
                 <span className="font-mono text-[#00d395] select-all">10102</span>
               </div>
-              <div className="flex justify-between items-center mt-3 border-t border-[#22252a] pt-3">
+              <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-3 border-t border-[#22252a] pt-3 gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Mainnet</span>
                 <span className="text-[#59606a] italic">Coming Soon</span>
               </div>
@@ -134,6 +157,7 @@ export default function BrxFooter() {
               <li><Link href="/company/about" className="hover:text-white transition-colors">About</Link></li>
                 <li><Link href="/company/vision" className="hover:text-white transition-colors">Vision</Link></li>
                 <li><Link href="/company/whitepaper" className="hover:text-white transition-colors">Whitepaper</Link></li>
+                <li><Link href="/branding-kit" className="hover:text-white transition-colors">Branding Kit</Link></li>
                 <li><a href="mailto:hello@brixs.space" className="hover:text-white transition-colors">Contact Us</a></li>
               <li><Link href="/legal" className="hover:text-white transition-colors">Terms of Use</Link></li>
               <li><Link href="/legal" className="hover:text-white transition-colors">Privacy Policy</Link></li>

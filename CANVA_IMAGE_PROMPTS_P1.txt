@@ -1,0 +1,207 @@
+=== BRIXS CANVA IMAGE PROMPTS — PART 1: SOLUTIONS + USE-CASES ===
+STYLE RULE (applies to every prompt):
+Premium photorealistic 3D product render; cinematic studio lighting; one abstract
+blockchain/tech object centered on a deep near-black (#0A0C0F) studio background;
+page accent as glowing key/edge light; glossy+matte materials, soft reflections,
+shallow DoF; Apple/infrastructure-brand product shot feel. 4:3 ratio.
+NEGATIVE: no text, letters, logos, watermark, people, UI screenshots.
+───────────────────────────────────────────────────────────────────
+
+▓ Brixs L2 Chain — /solutions/l2-chain   (accent: Green #00D395)
+  Folder: public/assets/pages/solutions-l2-chain/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a sleek hexagonal settlement core shard, glossy gunmetal surface,
+      centered on deep #0A0C0F background; sharp #00D395 edge glow, soft green caustic floor
+      reflection, cinematic key light. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of an abstract parallel execution engine — stacked semi-transparent
+      crystalline slabs mid-float over a #0A0C0F void; #00D395 neon rim light on each slab edge;
+      smooth depth-of-field blur on foreground. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a luminous orbital ring structure — thin anodized titanium torus
+      glowing at the inner rim with #00D395; centered on near-black studio floor; soft ambient
+      green haze, specular highlight top-right. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Wallet Infrastructure — /solutions/wallet-infrastructure   (accent: Purple #8C5AFC)
+  Folder: public/assets/pages/solutions-wallet-infrastructure/
+
+  [1] file: g1.png
+      Photorealistic 3D product render of a crystalline key-shaped node — faceted amethyst-tinted
+      glass, glowing inner filament; centered on #0A0C0F background; #8C5AFC soft halo edge light;
+      blurred floor reflection below. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a secure gasless portal sphere — matte charcoal shell with a
+      circular aperture glowing purple-white; floating on a #0A0C0F base; #8C5AFC key light from
+      upper-left, subtle caustic ring on floor. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a compact protocol core disc — brushed dark-steel chassis,
+      #8C5AFC neon accent ring around the perimeter; resting on a reflective #0A0C0F surface;
+      cinematic side-key studio lighting, shallow DoF. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ On / Off Ramps — /solutions/on-off-ramps   (accent: Green #00D395)
+  Folder: public/assets/pages/solutions-on-off-ramps/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a glowing flow-chart prism — translucent jade-green geometric
+      form with ascending data-flow lines etched inside; centered on #0A0C0F void; #00D395 rim
+      glow, soft floor caustic. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a minimalist pie-chart sphere — dark sphere segmented by thin
+      #00D395 luminous lines; floating above a near-black studio surface; tight cinematic key
+      light from upper-right, subtle green reflections. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a sleek gas-optimization disc — matte obsidian puck with
+      concentric #00D395 neon grooves on top face; resting on #0A0C0F; dramatic top-key studio
+      light, polished rim reflection. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Brixs CDK — /solutions/brixs-cdk   (accent: Yellow #FFB800)
+  Folder: public/assets/pages/solutions-brixs-cdk/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a precision launch-block cube — brushed gunmetal chassis with
+      #FFB800 chamfered edge glow; floating at a slight angle over a #0A0C0F void; dramatic
+      yellow key light from top-left, glossy underside reflection. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a faceted crystal tech form — multifaceted amber-tinted
+      glass polyhedron; centered on deep dark background; warm #FFB800 internal core glow
+      refracting through faces; matte studio shadow base. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a modular data-prism stack — three stacked translucent slabs
+      with #FFB800 luminous interfaces between each layer; on #0A0C0F base; cinematic three-point
+      studio lighting, soft amber caustic on floor. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Brixs AggLayer — /solutions/brixs-agglayer   (accent: Blue #2B6AFF)
+  Folder: public/assets/pages/solutions-brixs-agglayer/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a deep-blue data aggregation prism — tall faceted cobalt-glass
+      form with #2B6AFF internal light scatter; centered on #0A0C0F; cinematic blue key edge
+      light, crisp specular top highlight, soft floor reflection. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a luminous orbital ring — anodized steel torus with #2B6AFF
+      glow at inner rim; floating slightly above a near-black reflective surface; clean studio
+      ambient, electric-blue rim light. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a 3D bar/graph chart object — abstract stepped-column structure
+      in dark gunmetal; tallest column tipped with #2B6AFF neon cap; on #0A0C0F floor;
+      cinematic dramatic side-lighting, polished surface. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Vaultbridge — /solutions/vaultbridge   (accent: Green #00D395)
+  Folder: public/assets/pages/solutions-vaultbridge/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a secure vault node — armored matte-black spherical housing,
+      #00D395 strip light around equator seam; centered on #0A0C0F studio; dramatic green
+      key-light from upper-left, subtle floor reflection below. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a validator relay mesh — interconnected dark-titanium spheres
+      linked by thin #00D395 energy filaments; floating cluster on near-black void; cinematic
+      depth-of-field front-to-back blur. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a treasury asset block — heavy brushed-steel cube with #00D395
+      inset panel glow; resting on reflective #0A0C0F surface; tight three-point studio lighting,
+      hard shadow right side. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Payments — /use-cases/payments   (accent: Blue #2B6AFF)
+  Folder: public/assets/pages/use-cases-payments/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a gas-optimization token disc — slim matte-charcoal puck with
+      concentric #2B6AFF luminous rings engraved on top; centered on #0A0C0F; blue key light
+      from upper-right, sharp specular highlight on rim. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of an abstract settlement graph column cluster — dark metal pillars
+      at varying heights, tallest emitting a #2B6AFF neon halo cap; on near-black studio floor;
+      cinematic dramatic side-light, soft shadow pool. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a merchant rail allocation sphere — matte obsidian globe split
+      by two thin #2B6AFF luminous arcs; floating on #0A0C0F reflective base; soft ambient
+      blue haze, specular crown highlight. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ RWAs — /use-cases/rwas   (accent: Yellow #FFB800)
+  Folder: public/assets/pages/use-cases-rwas/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a tokenized asset block — heavy precision cube, satin-gold
+      chamfered edges glowing #FFB800; on deep #0A0C0F background; warm amber key light
+      top-left, polished face reflection below. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of an audit-ready crystal polyhedron — multifaceted amber-tinted
+      glass form; warm #FFB800 internal glow refracting through all faces; centered on dark void;
+      clean cinematic studio lighting. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a desk-friendly allocation disc — dark sphere with thin #FFB800
+      segmenting arcs etched on surface; resting on #0A0C0F base; dramatic warm key light from
+      above-right, soft specular ring. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Stablecoins — /use-cases/stablecoins   (accent: Green #00D395)
+  Folder: public/assets/pages/use-cases-stablecoins/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a high-throughput chart column object — stepped dark-steel
+      column sculpture, tallest pillar capped with #00D395 green neon disc; on #0A0C0F floor;
+      cinematic dramatic top-key light, hard shadow base. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a treasury reserve sphere — matte obsidian globe bisected by
+      three thin #00D395 luminous green arcs; floating on near-black reflective surface; ambient
+      studio haze, specular crown. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a predictable fee optimization puck — slim gunmetal disc with
+      concentric #00D395 engraved rings glowing on top face; centered on dark background; sharp
+      rim-light from upper-left, polished edge. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Agentic AI — /use-cases/agentic-ai   (accent: Purple #8C5AFC)
+  Folder: public/assets/pages/use-cases-agentic-ai/
+
+  [1] file: g1.png
+      Photorealistic 3D render of an autonomous agent crystal sphere — smooth dark sphere with
+      fractal-like purple crystalline formations emerging from center; #8C5AFC deep-violet edge
+      glow; centered on #0A0C0F; soft caustic ring on floor. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a scoped-key node icon — geometric dark-metal octahedron with
+      a single #8C5AFC filament channel running through its core; floating in dark studio void;
+      cinematic purple key light top-right, subtle floor reflection. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a chain-native data prism — tall faceted dark-cobalt glass
+      column with #8C5AFC internal light refraction; on near-black base; three-point studio
+      lighting, violet caustic light spill on floor. No text. 4:3.
+

@@ -1,0 +1,300 @@
+=== BRIXS CANVA IMAGE PROMPTS — PART 2: COMMUNITY + USE-BRIXS + COMPANY + LEGAL ===
+
+▓ Community Docs — /community/docs   (accent: Red #FF3B30)
+  Folder: public/assets/pages/community-docs/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a technical gateway protocol core — dense brushed-steel
+      cylindrical hub with #FF3B30 red neon top port ring; centered on #0A0C0F background;
+      cinematic warm-to-red dramatic key light. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a builder-path data prism — tall translucent dark-glass prism
+      with #FF3B30 edge-lit facets; on a near-black studio floor; tight red rim light from the
+      left, soft floor caustic glow. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a connected index chart sculpture — abstract stepped bar
+      structure in gunmetal; tallest bar emitting #FF3B30 neon halo cap; on #0A0C0F;
+      hard studio side-light, sharp shadow pool right. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Community Events — /community/events   (accent: Yellow #FFB800)
+  Folder: public/assets/pages/community-events/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a live-calendar orbital ring — large titanium torus with
+      #FFB800 amber inner rim glow; floating above near-black surface; warm cinematic key light
+      from top, polished ring reflection on floor. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a launch moment crystal — sharp-faceted amber-tinted glass
+      polyhedron; #FFB800 internal warm glow refracting through all faces; centered on dark
+      studio background; dramatic three-point amber lighting. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a community meetup block cube — precision dark-gunmetal cube
+      with #FFB800 chamfered glowing edges; on #0A0C0F reflective base; warm amber key light
+      upper-left, polished top face. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Community Support — /community/support   (accent: Blue #2B6AFF)
+  Folder: public/assets/pages/community-support/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a secure help-desk node sphere — smooth matte-charcoal sphere
+      with a single #2B6AFF illuminated aperture on front face; centered on #0A0C0F; blue key
+      light from upper-right, ambient studio glow. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a discord-channel node icon — geometric dark-metal octahedron
+      with #2B6AFF glowing filament core; on near-black studio floor; cinematic electric-blue
+      edge lighting, subtle underside reflection. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of an onboarding protocol core — cylindrical hub with concentric
+      #2B6AFF neon rings on top; on #0A0C0F base; tight three-point studio lighting, deep blue
+      ambient haze. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Community Forum — /community/forum   (accent: Green #00D395)
+  Folder: public/assets/pages/community-forum/
+
+  [1] file: g1.png
+      Photorealistic 3D render of an open-thread validator mesh cluster — dark-titanium spheres
+      interconnected by thin #00D395 green filaments; floating above #0A0C0F void; cinematic
+      depth-of-field blur back-to-front, green ambient haze. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a contributor node icon — geometric dark-metal form with a
+      single #00D395 luminous core filament; centered on near-black background; cinematic green
+      rim key light, soft specular on faces. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a proposal data prism — tall dark-glass prism with #00D395
+      edge-lit facets; resting on reflective #0A0C0F surface; three-point studio lighting,
+      green caustic light pool on floor. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Community Governance — /community/governance   (accent: Red #FF3B30)
+  Folder: public/assets/pages/community-governance/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a vote-tracking allocation sphere — matte dark globe with thin
+      #FF3B30 segmenting arc lines on surface; floating on #0A0C0F reflective base; dramatic red
+      rim key light, hard shadow. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a governance proposal graph sculpture — stepped dark-metal
+      column cluster, tallest bar tipped with #FF3B30 neon disc; on near-black floor; cinematic
+      side-light, deep-red ambient glow. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a network-shaping validator mesh — dark spheres linked by thin
+      #FF3B30 red filaments; floating cluster on #0A0C0F background; dramatic red edge lighting,
+      soft caustic floor. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Agent CLI — /use-brixs/agent-cli   (accent: Purple #8C5AFC)
+  Folder: public/assets/pages/use-brixs-agent-cli/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a terminal-power node icon — angular dark-metal geometric form
+      with #8C5AFC glowing filament at its core; centered on #0A0C0F background; cinematic
+      purple key light upper-left, crisp specular on faces. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of an agent-ops crystal — faceted amethyst-tinted glass sphere
+      with fractal purple formations inside; #8C5AFC violet edge glow; on near-black studio
+      base; ambient violet haze, polished floor reflection. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of an automation secure node — armored spherical housing, matte
+      charcoal shell with #8C5AFC strip-light around its equator seam; on #0A0C0F;
+      three-point studio lighting, hard shadow right. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Staking — /use-brixs/staking   (accent: Green #00D395)
+  Folder: public/assets/pages/use-brixs-staking/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a network-participation orbital ring — large anodized steel
+      torus with #00D395 inner rim glow; floating above reflective near-black surface; dramatic
+      green key light from top, clean caustic ring below. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a staking rewards graph — abstract stepped column sculpture
+      in gunmetal, tallest column capped with #00D395 neon disc; on #0A0C0F floor; cinematic
+      side-light, green ambient glow. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a delegation allocation sphere — matte obsidian globe bisected
+      by thin #00D395 luminous arcs; on dark studio base; soft ambient green haze, specular
+      crown highlight. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Airdrops — /use-brixs/airdrops   (accent: Yellow #FFB800)
+  Folder: public/assets/pages/use-brixs-airdrops/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a quest-driven crystal — multifaceted amber glass polyhedron
+      with warm #FFB800 internal radiance; centered on #0A0C0F void; three-point amber studio
+      lighting, crisp specular highlights on each face. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a campaign reward block cube — precision dark-gunmetal cube
+      with #FFB800 chamfered glowing edges; on reflective #0A0C0F; warm amber key light from
+      upper-left, glossy underside. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of an ecosystem growth graph column cluster — dark metal pillars
+      at varying heights, tallest glowing #FFB800 at cap; on near-black studio floor;
+      dramatic warm side-light, polished surface. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Portal — /use-brixs/portal   (accent: Blue #2B6AFF)
+  Folder: public/assets/pages/use-brixs-portal/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a bridge protocol core hub — cylindrical dark-steel chassis
+      with #2B6AFF neon aperture ring on top face; on #0A0C0F; dramatic electric-blue key
+      light from upper-right, crisp shadow. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a swap data prism — tall translucent cobalt-glass form with
+      #2B6AFF edge-lit facets; on near-black reflective base; clean cinematic blue rim light,
+      soft caustic floor projection. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a manage-assets gas optimization puck — slim matte puck with
+      concentric #2B6AFF neon rings on top face; centered on #0A0C0F; blue key light from
+      left, polished rim edge. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Brixs Wallet — /use-brixs/wallet   (accent: Purple #8C5AFC)
+  Folder: public/assets/pages/use-brixs-wallet/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a send-ready secure node — smooth armored sphere with a
+      single #8C5AFC glowing aperture port; centered on #0A0C0F; cinematic violet key light
+      top-left, ambient purple haze, floor reflection below. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a receive-channel node icon — dark-metal angular form with
+      #8C5AFC luminous core filament; on near-black studio base; purple rim lighting, subtle
+      specular on faces. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of an asset-management validator mesh — titanium node spheres
+      linked by thin #8C5AFC filaments; floating cluster on #0A0C0F; cinematic depth-of-field,
+      violet ambient glow. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ About Brixs — /company/about   (accent: Blue #2B6AFF)
+  Folder: public/assets/pages/company-about/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a mission protocol core — dense dark cylindrical hub with
+      #2B6AFF neon concentric port ring; centered on #0A0C0F; electric-blue key light,
+      cinematic studio mood, soft floor shadow. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a network orbital ring — titanium torus with #2B6AFF glowing
+      inner rim; floating above near-black reflective surface; dramatic blue key light from top,
+      clean polished ring reflection. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a team build execution engine — stacked semi-transparent
+      crystalline slabs in mid-float; #2B6AFF neon edge glow on each layer; on #0A0C0F void;
+      cinematic blue ambient, shallow DoF. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Vision — /company/vision   (accent: Green #00D395)
+  Folder: public/assets/pages/company-vision/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a north-star orbital ring — large titanium torus with #00D395
+      green inner rim luminance; on near-black reflective surface; cinematic green top key light,
+      clean shadow pool. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a future crystal polyhedron — multifaceted dark-green-tinted
+      glass form; warm #00D395 internal glow refracting through faces; centered on #0A0C0F;
+      dramatic three-point studio lighting. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a connected future data prism — tall faceted cobalt-glass prism
+      with #00D395 edge-lit faces; on dark studio floor; green ambient haze, specular front
+      highlight, subtle caustic below. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Whitepaper — /company/whitepaper   (accent: Yellow #FFB800)
+  Folder: public/assets/pages/company-whitepaper/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a protocol thesis data prism — tall amber-glass faceted prism
+      with #FFB800 warm internal luminance; centered on #0A0C0F; warm amber key light from
+      top-left, polished base reflection. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of an architectural claims graph column — dark metal stepped
+      column sculpture, tallest pillar capped with #FFB800 neon disc; on near-black floor;
+      warm dramatic side-light, long shadow. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a technical architecture block cube — heavy brushed-steel cube
+      with #FFB800 chamfered glowing edges; on reflective #0A0C0F surface; amber three-point
+      studio lighting, glossy top face. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Contact — /company/contact   (accent: Red #FF3B30)
+  Folder: public/assets/pages/company-contact/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a team-reach protocol core — sleek cylindrical dark hub with
+      #FF3B30 neon concentric aperture ring; centered on #0A0C0F; dramatic red key light
+      top-right, hard shadow below. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a communications channel node icon — angular dark-metal form
+      with #FF3B30 glowing core filament; on near-black studio base; red rim light, crisp
+      specular on all faces, subtle floor reflection. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a partnership secure node — armored dark sphere with #FF3B30
+      strip light around equator seam; centered on #0A0C0F; cinematic red edge lighting, deep
+      shadow right side, ambient red haze. No text. 4:3.
+
+───────────────────────────────────────────────────────────────────
+
+▓ Legal — /legal   (accent: Blue #2B6AFF)
+  Folder: public/assets/pages/legal/
+
+  [1] file: g1.png
+      Photorealistic 3D render of a terms protocol core disc — dark cylindrical hub with #2B6AFF
+      neon top ring; centered on #0A0C0F; electric-blue cinematic key light, polished studio
+      floor reflection, soft ambient. No text. 4:3.
+
+  [2] file: g2.png
+      Photorealistic 3D render of a privacy data prism — tall translucent cobalt-glass prism
+      with #2B6AFF edge-lit facets; on near-black reflective base; blue key light from upper
+      left, caustic floor glow. No text. 4:3.
+
+  [3] file: g3.png
+      Photorealistic 3D render of a policy validator mesh — dark-titanium node spheres connected
+      by thin #2B6AFF filaments; floating on #0A0C0F void; cinematic depth-of-field blue
+      ambient, soft specular highlights. No text. 4:3.
+

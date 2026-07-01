@@ -133,17 +133,41 @@ export default function TokenomicsPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>The BRX economy in the system.</h2>
         </div>
-        <div className="brx-gallery">
-          {[
-            ["/assets/3d-assets/pie-chart.png", "Allocation"],
-            ["/assets/3d-assets/graph-chart.png", "Emissions"],
-            ["/assets/3d-assets/data-prism.png", "Utility"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-5xl mx-auto mt-12 w-full px-4">
+          <div className="flex h-16 w-full overflow-hidden rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5 shadow-2xl">
+            <div className="bg-[#ffb800] h-full transition hover:opacity-80" style={{width: "30%"}} title="Validators (30%)"></div>
+            <div className="bg-white/90 h-full border-l border-black/20 transition hover:opacity-80" style={{width: "25%"}} title="Ecosystem Growth (25%)"></div>
+            <div className="bg-white/70 h-full border-l border-black/20 transition hover:opacity-80" style={{width: "20%"}} title="Treasury (20%)"></div>
+            <div className="bg-[#0f1115]/50 h-full border-l border-black/20 transition hover:opacity-80" style={{width: "10%"}} title="Developer Grants (10%)"></div>
+            <div className="bg-white/30 h-full border-l border-black/20 transition hover:opacity-80" style={{width: "10%"}} title="Community Incentives (10%)"></div>
+            <div className="bg-[#0f1115]/10 h-full border-l border-black/20 transition hover:opacity-80" style={{width: "5%"}} title="Research Fund (5%)"></div>
+          </div>
+          <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 text-center">
+            <div className="flex flex-col gap-2">
+              <span className="text-[#ffb800] font-mono text-2xl font-medium">30%</span>
+              <span className="text-[#0f1115]/60 text-[10px] uppercase tracking-[0.2em]">Validators</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[#0f1115] font-mono text-2xl font-medium">25%</span>
+              <span className="text-[#0f1115]/60 text-[10px] uppercase tracking-[0.2em]">Ecosystem</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[#0f1115]/80 font-mono text-2xl font-medium">20%</span>
+              <span className="text-[#0f1115]/60 text-[10px] uppercase tracking-[0.2em]">Treasury</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[#0f1115]/60 font-mono text-2xl font-medium">10%</span>
+              <span className="text-[#0f1115]/60 text-[10px] uppercase tracking-[0.2em]">Grants</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[#0f1115]/30 font-mono text-2xl font-medium">10%</span>
+              <span className="text-[#0f1115]/60 text-[10px] uppercase tracking-[0.2em]">Community</span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-[#0f1115]/10 font-mono text-2xl font-medium">5%</span>
+              <span className="text-[#0f1115]/60 text-[10px] uppercase tracking-[0.2em]">Research</span>
+            </div>
+          </div>
         </div>
       </section>
 

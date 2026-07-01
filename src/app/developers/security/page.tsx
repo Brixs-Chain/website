@@ -34,10 +34,7 @@ export default function SecurityPage() {
   return (
     <main className="brx-page" style={{ "--accent": "#8c5afc" } as React.CSSProperties}>
       {/* HERO */}
-      <section className="brx-h-stage">
-        <div className="brx-h-stage-media">
-          <video src="/assets/official/model-8.mp4" autoPlay muted loop playsInline />
-        </div>
+      <section className="brx-h-media">
         <div className="brx-rise">
           <span className="brx-ph-eyebrow">
             <Shield size={14} /> Developers · Security
@@ -59,10 +56,14 @@ export default function SecurityPage() {
             >
               Read security docs <ArrowRight size={16} />
             </a>
-            <Link className="brx-btn" href="/" style={{ background: "#fff", color: "#06121f" }}>
+            <Link className="brx-btn-line" href="/">
               Back to overview <ArrowUpRight size={16} />
             </Link>
           </div>
+        </div>
+        <div className="brx-h-media-frame">
+          <video src="/assets/official/model-8.mp4" autoPlay muted loop playsInline />
+          <span className="brx-tag">BRX / SECURITY</span>
         </div>
       </section>
 
@@ -123,17 +124,31 @@ export default function SecurityPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>Security in the system.</h2>
         </div>
-        <div className="brx-gallery feature">
-          {[
-            ["/assets/3d-assets/secure-node.png", "Secure node"],
-            ["/assets/3d-assets/validator-mesh.png", "Validator mesh"],
-            ["/assets/3d-assets/protocol-core.png", "Protocol core"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-4xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5 text-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[#8c5afc]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="size-16 rounded-full border border-[#0f1115]/20 bg-[#0f1115]/5 flex items-center justify-center text-[#8c5afc] relative z-10 group-hover:scale-110 transition-transform">
+              <Lock size={28} />
+            </div>
+            <h3 className="text-[#0f1115] font-medium relative z-10">Secure Node</h3>
+            <p className="text-[#0f1115]/60 text-sm relative z-10">Hardware-level isolation and strict access control for every validator.</p>
+          </div>
+          <div className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5 text-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[#8c5afc]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="size-16 rounded-full border border-[#0f1115]/20 bg-[#0f1115]/5 flex items-center justify-center text-[#8c5afc] relative z-10 group-hover:scale-110 transition-transform">
+              <ShieldCheck size={28} />
+            </div>
+            <h3 className="text-[#0f1115] font-medium relative z-10">Validator Mesh</h3>
+            <p className="text-[#0f1115]/60 text-sm relative z-10">Encrypted communication enforcing Byzantine fault tolerance.</p>
+          </div>
+          <div className="flex flex-col items-center gap-4 p-8 rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5 text-center relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[#8c5afc]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="size-16 rounded-full border border-[#0f1115]/20 bg-[#0f1115]/5 flex items-center justify-center text-[#8c5afc] relative z-10 group-hover:scale-110 transition-transform">
+              <Server size={28} />
+            </div>
+            <h3 className="text-[#0f1115] font-medium relative z-10">Protocol Core</h3>
+            <p className="text-[#0f1115]/60 text-sm relative z-10">The immutable logic layer dictating state transitions safely.</p>
+          </div>
         </div>
       </section>
 

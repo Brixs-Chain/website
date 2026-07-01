@@ -96,38 +96,33 @@ const themes: [string, string, string][] = [
 export default function RoadmapPage() {
   return (
     <main className="brx-page" style={{ "--accent": "#ff3b30" } as React.CSSProperties}>
-      {/* HERO */}
-      <section className="brx-h-center">
-        <div className="brx-h-center-bg" aria-hidden="true">
+      {/* HERO — media */}
+      <section className="brx-h-media">
+        <div className="brx-rise">
+          <span className="brx-ph-eyebrow">
+            <Map size={14} /> Resources · Roadmap
+          </span>
+          <h1>
+            Building it, <em>stage by stage.</em>
+          </h1>
+          <p className="brx-ph-lead">
+            Brixs is executing a multi-stage roadmap focused on protocol
+            development, infrastructure scaling, ecosystem growth, and global
+            adoption — the institutional-grade infrastructure layer for
+            blockchain.
+          </p>
+          <div className="brx-ph-actions">
+            <a className="brx-btn accent" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer">
+              View development plan <ArrowRight size={16} />
+            </a>
+            <Link className="brx-btn-line" href="/">
+              Back to overview <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+        <div className="brx-h-media-frame">
           <video src="/assets/official/model-13.mp4" autoPlay muted loop playsInline />
-        </div>
-        <span className="brx-ph-eyebrow">
-          <Map size={14} /> Resources · Roadmap
-        </span>
-        <h1>
-          Building it, <em>stage by stage.</em>
-        </h1>
-        <p className="brx-ph-lead">
-          Brixs is executing a multi-stage roadmap focused on protocol
-          development, infrastructure scaling, ecosystem growth, and global
-          adoption — the institutional-grade infrastructure layer for
-          blockchain.
-        </p>
-        <div className="brx-ph-actions">
-          <a className="brx-btn accent" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer">
-            View development plan <ArrowRight size={16} />
-          </a>
-          <Link className="brx-btn-line" href="/">
-            Back to overview <ArrowUpRight size={16} />
-          </Link>
-        </div>
-        <div className="brx-ph-stats">
-          {[["7", "Roadmap phases"], ["15+", "Validators"], ["2030", "Long-term horizon"]].map(([v, l]) => (
-            <div className="brx-stat" key={l}>
-              <b>{v}</b>
-              <span>{l}</span>
-            </div>
-          ))}
+          <span className="brx-tag">BRX / ROADMAP</span>
         </div>
       </section>
 

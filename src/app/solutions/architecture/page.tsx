@@ -32,10 +32,7 @@ export default function ArchitecturePage() {
   return (
     <main className="brx-page" style={{ "--accent": "#00d395" } as React.CSSProperties}>
       {/* HERO */}
-      <section className="brx-h-stage">
-        <div className="brx-h-stage-media">
-          <video src="/assets/official/model-3.mp4" autoPlay muted loop playsInline />
-        </div>
+      <section className="brx-h-media">
         <div className="brx-rise">
           <span className="brx-ph-eyebrow">
             <Layers size={14} /> Solutions · Architecture
@@ -52,10 +49,14 @@ export default function ArchitecturePage() {
             <a className="brx-btn accent" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer">
               Read technical docs <ArrowRight size={16} />
             </a>
-            <Link className="brx-btn" href="/" style={{ background: "#fff", color: "#06121f" }}>
+            <Link className="brx-btn-line" href="/">
               Back to overview <ArrowUpRight size={16} />
             </Link>
           </div>
+        </div>
+        <div className="brx-h-media-frame">
+          <video src="/assets/official/model-3.mp4" autoPlay muted loop playsInline />
+          <span className="brx-tag">BRX / ARCHITECTURE</span>
         </div>
       </section>
 
@@ -98,17 +99,24 @@ export default function ArchitecturePage() {
           <p className="brx-eyebrow">Inside the engine</p>
           <h2>Parallel execution, optimized for cost.</h2>
         </div>
-        <div className="brx-gallery feature">
-          {[
-            ["/assets/3d-assets/execution-engine.png", "Brixs execution engine"],
-            ["/assets/3d-assets/parallel-execution.jpg", "Parallel transaction batching"],
-            ["/assets/3d-assets/gas-optimization.jpg", "Optimized gas routing"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="flex flex-col gap-4 max-w-5xl mx-auto mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="border border-[#0f1115]/10 bg-[rgba(255,255,255,.03)] p-8 rounded-[1.5rem] flex flex-col items-center text-center gap-4 transition hover:-translate-y-1 hover:bg-[#0f1115]/5">
+              <span className="grid size-14 place-items-center rounded-full bg-[#0f1115]/5 text-[#00d395] border border-[#0f1115]/10"><Cpu size={24}/></span>
+              <h3 className="text-lg text-[#0f1115] font-medium">Brixs Execution Engine</h3>
+              <p className="text-sm leading-relaxed text-[#0f1115]/60">Core environment handling advanced smart contract logic and isolated state.</p>
+            </div>
+            <div className="border border-[#0f1115]/10 bg-[rgba(255,255,255,.03)] p-8 rounded-[1.5rem] flex flex-col items-center text-center gap-4 transition hover:-translate-y-1 hover:bg-[#0f1115]/5">
+              <span className="grid size-14 place-items-center rounded-full bg-[#0f1115]/5 text-[#00d395] border border-[#0f1115]/10"><Layers size={24}/></span>
+              <h3 className="text-lg text-[#0f1115] font-medium">Parallel Transaction Batching</h3>
+              <p className="text-sm leading-relaxed text-[#0f1115]/60">Simultaneous processing of independent state transitions without conflict.</p>
+            </div>
+            <div className="border border-[#0f1115]/10 bg-[rgba(255,255,255,.03)] p-8 rounded-[1.5rem] flex flex-col items-center text-center gap-4 transition hover:-translate-y-1 hover:bg-[#0f1115]/5">
+              <span className="grid size-14 place-items-center rounded-full bg-[#0f1115]/5 text-[#00d395] border border-[#0f1115]/10"><Network size={24}/></span>
+              <h3 className="text-lg text-[#0f1115] font-medium">Optimized Gas Routing</h3>
+              <p className="text-sm leading-relaxed text-[#0f1115]/60">Dynamic fee market routing ensuring near-zero costs for users.</p>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -35,37 +35,32 @@ const features: [typeof Zap, string, string][] = [
 export default function ScalabilityPage() {
   return (
     <main className="brx-page" style={{ "--accent": "#00d395" } as React.CSSProperties}>
-      {/* HERO — centered */}
-      <section className="brx-h-center">
-        <div className="brx-h-center-bg" aria-hidden="true">
+      {/* HERO — media */}
+      <section className="brx-h-media">
+        <div className="brx-rise">
+          <span className="brx-ph-eyebrow">
+            <Gauge size={14} /> Ecosystem · Scalability
+          </span>
+          <h1>
+            Scale without <em>ceilings.</em>
+          </h1>
+          <p className="brx-ph-lead">
+            Horizontal scaling via parallel execution. Brixs is engineered for
+            infrastructure growth without bottlenecks or centralized constraints —
+            high throughput, fast finality, and low latency by design.
+          </p>
+          <div className="brx-ph-actions">
+            <a className="brx-btn accent" href="https://docs.brixs.space/platform/overview" target="_blank" rel="noopener noreferrer">
+              View architecture <ArrowRight size={16} />
+            </a>
+            <Link className="brx-btn-line" href="/developers/infrastructure">
+              Explore infrastructure <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+        <div className="brx-h-media-frame">
           <video src="/assets/official/model-10.mp4" autoPlay muted loop playsInline />
-        </div>
-        <span className="brx-ph-eyebrow">
-          <Gauge size={14} /> Ecosystem · Scalability
-        </span>
-        <h1>
-          Scale without <em>ceilings.</em>
-        </h1>
-        <p className="brx-ph-lead">
-          Horizontal scaling via parallel execution. Brixs is engineered for
-          infrastructure growth without bottlenecks or centralized constraints —
-          high throughput, fast finality, and low latency by design.
-        </p>
-        <div className="brx-ph-actions">
-          <a className="brx-btn accent" href="https://docs.brixs.space/platform/overview" target="_blank" rel="noopener noreferrer">
-            View architecture <ArrowRight size={16} />
-          </a>
-          <Link className="brx-btn-line" href="/developers/infrastructure">
-            Explore infrastructure <ArrowUpRight size={16} />
-          </Link>
-        </div>
-        <div className="brx-ph-stats">
-          {[["~2,500", "TPS throughput"], ["~2s", "Block finality"], ["15+", "Active validators"]].map(([v, l]) => (
-            <div className="brx-stat" key={l}>
-              <b>{v}</b>
-              <span>{l}</span>
-            </div>
-          ))}
+          <span className="brx-tag">BRX / SCALABILITY</span>
         </div>
       </section>
 
@@ -112,17 +107,22 @@ export default function ScalabilityPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>Scaling in the system.</h2>
         </div>
-        <div className="brx-gmosaic">
-          {[
-            ["/assets/3d-assets/graph-chart.png", "Throughput scaling"],
-            ["/assets/3d-assets/parallel-execution.jpg", "Parallel execution"],
-            ["/assets/3d-assets/gas-optimization.jpg", "Gas optimization"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-5xl mx-auto mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="md:col-span-2 lg:col-span-2 rounded-[2rem] border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-8 flex flex-col justify-end min-h-[300px] relative overflow-hidden group transition hover:border-[#0f1115]/20">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#00d395]/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"/>
+            <h3 className="text-2xl text-[#0f1115] font-medium mb-3 relative z-10">Throughput Scaling</h3>
+            <p className="text-[#0f1115]/60 relative z-10">Linear scaling through localized state locking and dynamic routing.</p>
+          </div>
+          <div className="rounded-[2rem] border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-8 flex flex-col justify-end min-h-[300px] relative overflow-hidden group transition hover:border-[#0f1115]/20">
+            <div className="absolute inset-0 bg-gradient-to-bl from-[#00d395]/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"/>
+            <h3 className="text-xl text-[#0f1115] font-medium mb-3 relative z-10">Parallel Execution</h3>
+            <p className="text-[#0f1115]/60 relative z-10">Independent state moves simultaneously without global bottlenecks.</p>
+          </div>
+          <div className="md:col-span-full lg:col-span-3 rounded-[2rem] border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-8 flex flex-col justify-end min-h-[200px] relative overflow-hidden group transition hover:border-[#0f1115]/20">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#00d395]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"/>
+            <h3 className="text-xl text-[#0f1115] font-medium mb-3 relative z-10">Gas Optimization</h3>
+            <p className="text-[#0f1115]/60 relative z-10">Abstracted sub-cent fees via smart routing logic.</p>
+          </div>
         </div>
       </section>
 

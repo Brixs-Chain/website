@@ -132,17 +132,30 @@ export default function DeveloperCLIPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>The stack behind the command.</h2>
         </div>
-        <div className="brx-gstrip">
-          {[
-            ["/assets/3d-assets/node-icon.png", "Local node"],
-            ["/assets/3d-assets/secure-node.png", "Validator management"],
-            ["/assets/3d-assets/crystal-01.png", "Contract deployment"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-4xl mx-auto mt-12 rounded-2xl overflow-hidden border border-white/10 bg-[#0f1115] shadow-2xl">
+          <div className="bg-black/40 px-4 py-3 flex items-center gap-2 border-b border-white/5">
+            <div className="size-3 rounded-full bg-red-500/80"></div>
+            <div className="size-3 rounded-full bg-yellow-500/80"></div>
+            <div className="size-3 rounded-full bg-green-500/80"></div>
+            <span className="ml-4 text-xs font-mono text-white/30 tracking-wider">Terminal</span>
+          </div>
+          <div className="p-6 font-mono text-sm leading-relaxed overflow-x-auto relative">
+            <div className="flex flex-col gap-1">
+              <div><span className="text-[#ff3b30]">$</span> <span className="text-white">brixs local start</span></div>
+              <div className="text-white/40">Initializing local node...</div>
+              <div className="text-[#00d395]">✓ Genesis block loaded [42ms]</div>
+              <div className="text-[#00d395]">✓ Core contracts deployed [112ms]</div>
+              <div className="text-[#00d395]">✓ Faucet running at http://127.0.0.1:5001</div>
+              <div className="mt-2 text-white/80">Network ready. Listening on http://127.0.0.1:8545</div>
+            </div>
+            <div className="flex flex-col gap-1 mt-6">
+              <div><span className="text-[#ff3b30]">$</span> <span className="text-white">brixs deploy src/Vault.sol --network localnet</span></div>
+              <div className="text-white/40">Compiling 1 contract...</div>
+              <div className="text-white/40">Deploying Vault.sol...</div>
+              <div className="text-[#00d395]">✓ Transaction successful</div>
+              <div className="text-white/80 mt-1">Contract Address: <span className="text-[#2b6aff]">0x1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b</span></div>
+            </div>
+          </div>
         </div>
       </section>
 

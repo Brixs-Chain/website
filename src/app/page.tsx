@@ -96,7 +96,7 @@ export default function Home() {
             </Link>{" "}
           </div>{" "}
         </div>{" "}
-        <div className="brx-hero-art" aria-label="Brixs network motion graphic">
+        <div className="brx-hero-art" aria-label="Brixs network motion graphic" style={{ width: '100%', minWidth: '100%' }}>
           {" "}
           <div className="brx-art-grid" /> <div className="brx-orbit one" />{" "}
           <div className="brx-orbit two" /> <div className="brx-orbit three" />{" "}

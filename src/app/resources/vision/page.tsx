@@ -46,11 +46,8 @@ const longTerm = [
 export default function VisionPage() {
   return (
     <main className="brx-page" style={{ "--accent": "#ff3b30" } as React.CSSProperties}>
-      {/* HERO — stage */}
-      <section className="brx-h-stage">
-        <div className="brx-h-stage-media">
-          <video src="/assets/official/model-14.mp4" autoPlay muted loop playsInline />
-        </div>
+      {/* HERO — media */}
+      <section className="brx-h-media">
         <div className="brx-rise">
           <span className="brx-ph-eyebrow">
             <Diamond size={14} /> Resources · Vision
@@ -67,10 +64,14 @@ export default function VisionPage() {
             <a className="brx-btn accent" href="https://docs.brixs.space/" target="_blank" rel="noopener noreferrer">
               Read the manifesto <ArrowRight size={16} />
             </a>
-            <Link className="brx-btn" href="/" style={{ background: "#fff", color: "#06121f" }}>
+            <Link className="brx-btn-line" href="/">
               Back to overview <ArrowUpRight size={16} />
             </Link>
           </div>
+        </div>
+        <div className="brx-h-media-frame">
+          <video src="/assets/official/model-14.mp4" autoPlay muted loop playsInline />
+          <span className="brx-tag">BRX / VISION</span>
         </div>
       </section>
 
@@ -149,17 +150,22 @@ export default function VisionPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>The movement layer.</h2>
         </div>
-        <div className="brx-gallery feature">
-          {[
-            ["/assets/3d-assets/orbital-ring.png", "Brixs exists for what comes next"],
-            ["/assets/3d-assets/crystal-01.png", "Programmable, sovereign assets"],
-            ["/assets/3d-assets/data-prism.png", "Unified liquidity across chains"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-5xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="md:col-span-2 lg:col-span-2 rounded-[2rem] border border-[#0f1115]/10 bg-[#0f1115]/5 p-8 flex flex-col justify-end min-h-[300px] relative overflow-hidden group transition hover:border-[#0f1115]/20">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#ff3b30]/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"/>
+            <h3 className="text-2xl text-[#0f1115] font-medium mb-3 relative z-10">Brixs exists for what comes next.</h3>
+            <p className="text-[#0f1115]/60 relative z-10">Infrastructure invisible to the user.</p>
+          </div>
+          <div className="rounded-[2rem] border border-[#0f1115]/10 bg-[#0f1115]/5 p-8 flex flex-col justify-end min-h-[300px] relative overflow-hidden group transition hover:border-[#0f1115]/20">
+            <div className="absolute inset-0 bg-gradient-to-bl from-[#ff3b30]/10 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"/>
+            <h3 className="text-xl text-[#0f1115] font-medium mb-3 relative z-10">Programmable Assets</h3>
+            <p className="text-[#0f1115]/60 relative z-10">Sovereign by default.</p>
+          </div>
+          <div className="md:col-span-full lg:col-span-3 rounded-[2rem] border border-[#0f1115]/10 bg-[#0f1115]/5 p-8 flex flex-col justify-end min-h-[200px] relative overflow-hidden group transition hover:border-[#0f1115]/20">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ff3b30]/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-500"/>
+            <h3 className="text-2xl text-[#0f1115] font-medium mb-3 relative z-10">Unified liquidity across chains.</h3>
+            <p className="text-[#0f1115]/60 relative z-10">A completely seamless layer for liquidity and value transfer.</p>
+          </div>
         </div>
       </section>
 

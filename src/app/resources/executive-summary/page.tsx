@@ -134,17 +134,22 @@ export default function ExecutiveSummaryPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>The protocol in the system.</h2>
         </div>
-        <div className="brx-gallery">
-          {[
-            ["/assets/3d-assets/protocol-core.png", "Protocol core"],
-            ["/assets/3d-assets/orbital-ring.png", "Settlement layer"],
-            ["/assets/3d-assets/data-prism.png", "Fragmented rails"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-5xl mx-auto mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-8 flex flex-col gap-4 rounded-2xl border-t-4 border-t-[#ff3b30] transition hover:bg-[#0f1115]/5">
+            <span className="text-xs uppercase tracking-widest text-[#0f1115]/50 font-semibold">Network Uptime</span>
+            <span className="text-5xl font-mono text-[#0f1115] font-medium tracking-tighter">99.99%</span>
+            <span className="text-sm text-[#0f1115]/60 leading-relaxed">Guaranteed by decentralized validator sets securely anchoring states to Ethereum.</span>
+          </div>
+          <div className="border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-8 flex flex-col gap-4 rounded-2xl border-t-4 border-t-[#ff3b30] transition hover:bg-[#0f1115]/5">
+            <span className="text-xs uppercase tracking-widest text-[#0f1115]/50 font-semibold">Settlement Time</span>
+            <span className="text-5xl font-mono text-[#0f1115] font-medium tracking-tighter">~2s</span>
+            <span className="text-sm text-[#0f1115]/60 leading-relaxed">Near-instant transaction finality without sacrificing long-term security guarantees.</span>
+          </div>
+          <div className="border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] p-8 flex flex-col gap-4 rounded-2xl border-t-4 border-t-[#ff3b30] transition hover:bg-[#0f1115]/5">
+            <span className="text-xs uppercase tracking-widest text-[#0f1115]/50 font-semibold">Avg Gas Fee</span>
+            <span className="text-5xl font-mono text-[#0f1115] font-medium tracking-tighter">$0.001</span>
+            <span className="text-sm text-[#0f1115]/60 leading-relaxed">Fees dynamically routed and completely abstracted away from end users.</span>
+          </div>
         </div>
       </section>
 

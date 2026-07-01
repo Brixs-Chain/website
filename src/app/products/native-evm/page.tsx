@@ -150,17 +150,38 @@ export default function NativeEVMPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>Native EVM in the system.</h2>
         </div>
-        <div className="brx-gmosaic">
-          {[
-            ["/assets/3d-assets/execution-engine.png", "Execution engine"],
-            ["/assets/3d-assets/parallel-execution.jpg", "Parallel execution"],
-            ["/assets/3d-assets/cube-01.png", "Object-centric state"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-5xl mx-auto mt-12 overflow-x-auto rounded-2xl border border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] shadow-2xl">
+          <table className="w-full text-left min-w-[600px] border-collapse">
+            <thead>
+              <tr className="border-b border-[#0f1115]/10 bg-[#0f1115]/5 text-xs uppercase tracking-[0.2em] text-[#0f1115]/60">
+                <th className="p-6 font-medium">Metric</th>
+                <th className="p-6 font-medium">Standard EVM</th>
+                <th className="p-6 font-medium text-[#2b6aff]">Brixs Native EVM</th>
+              </tr>
+            </thead>
+            <tbody className="text-sm">
+              <tr className="border-b border-[#0f1115]/10 transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">Execution Model</td>
+                <td className="p-6 text-[#0f1115]">Single-threaded / Sequential</td>
+                <td className="p-6 text-[#0f1115] font-medium">Multi-threaded / Parallel</td>
+              </tr>
+              <tr className="border-b border-[#0f1115]/10 transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">State Locks</td>
+                <td className="p-6 text-[#0f1115]">Global lock per block</td>
+                <td className="p-6 text-[#0f1115] font-medium">Localized per-object locks</td>
+              </tr>
+              <tr className="border-b border-[#0f1115]/10 transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">Throughput Limit</td>
+                <td className="p-6 text-[#0f1115]">~15-30 TPS</td>
+                <td className="p-6 text-[#0f1115] font-medium">Hardware-bound (~2,500+ TPS)</td>
+              </tr>
+              <tr className="transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">Contract Compatibility</td>
+                <td className="p-6 text-[#0f1115]">Native Solidity</td>
+                <td className="p-6 text-[#0f1115] font-medium">100% Native Solidity</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

@@ -151,17 +151,38 @@ export default function DataModelPage() {
           <p className="brx-eyebrow">Visual surface</p>
           <h2>The data model in the system.</h2>
         </div>
-        <div className="brx-gmosaic">
-          {[
-            ["/assets/3d-assets/data-prism.png", "Object state prism"],
-            ["/assets/3d-assets/cube-01.png", "Isolated objects"],
-            ["/assets/3d-assets/validator-mesh.png", "Data availability mesh"],
-          ].map(([src, cap]) => (
-            <figure className="brx-shot" key={src}>
-              <Image src={src} alt={cap} width={1200} height={900} />
-              <figcaption>{cap}</figcaption>
-            </figure>
-          ))}
+        <div className="max-w-5xl mx-auto mt-12 overflow-x-auto rounded-2xl border border-[#0f1115]/10 bg-[#0f1115]/5 shadow-2xl">
+          <table className="w-full text-left min-w-[600px] border-collapse">
+            <thead>
+              <tr className="border-b border-[#0f1115]/10 bg-[rgba(15,17,21,.02)] text-xs uppercase tracking-[0.2em] text-[#0f1115]/60">
+                <th className="p-6 font-medium">Architecture</th>
+                <th className="p-6 font-medium">Account-based</th>
+                <th className="p-6 font-medium text-[#00d395]">Brixs Object-centric</th>
+              </tr>
+            </thead>
+            <tbody className="text-sm">
+              <tr className="border-b border-[#0f1115]/10 transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">State Ownership</td>
+                <td className="p-6 text-[#0f1115]">Global contracts hold balances</td>
+                <td className="p-6 text-[#0f1115] font-medium">Users directly own isolated objects</td>
+              </tr>
+              <tr className="border-b border-[#0f1115]/10 transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">Execution</td>
+                <td className="p-6 text-[#0f1115]">Sequential bottleneck</td>
+                <td className="p-6 text-[#0f1115] font-medium">Parallel execution by default</td>
+              </tr>
+              <tr className="border-b border-[#0f1115]/10 transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">Asset Creation</td>
+                <td className="p-6 text-[#0f1115]">ERC20 contract deployment</td>
+                <td className="p-6 text-[#0f1115] font-medium">Native typing at protocol level</td>
+              </tr>
+              <tr className="transition hover:bg-[#0f1115]/5">
+                <td className="p-6 text-[#0f1115]/60 font-medium">Data Storage</td>
+                <td className="p-6 text-[#0f1115]">Expensive global key-value maps</td>
+                <td className="p-6 text-[#0f1115] font-medium">Cost-efficient independent lanes</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 
