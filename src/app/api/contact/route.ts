@@ -9,11 +9,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const SENDER_EMAIL = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
 // Map departments to internal Brixs email addresses
+// NOTE: Until brixs.space is verified on Resend, all emails must go to contactbrixs@gmail.com
 const departmentEmails: Record<string, string> = {
-  'General Inquiries': 'hello@brixs.space',
-  'Support': 'support@brixs.space',
-  'Partnerships': 'partnerships@brixs.space',
-  'Legal & Terms': 'legal@brixs.space'
+  'General Inquiries': 'contactbrixs@gmail.com',
+  'Support': 'contactbrixs@gmail.com',
+  'Partnerships': 'contactbrixs@gmail.com',
+  'Legal & Terms': 'contactbrixs@gmail.com'
 };
 
 export async function POST(request: Request) {
@@ -30,7 +31,7 @@ export async function POST(request: Request) {
     }
 
     // Determine the internal routing address
-    const internalToEmail = departmentEmails[department] || 'hello@brixs.space';
+    const internalToEmail = departmentEmails[department] || 'contactbrixs@gmail.com';
 
     // 1. Send the internal notification email to the Brixs team
     const internalEmailResponse = await resend.emails.send({
