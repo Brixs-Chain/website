@@ -99,27 +99,39 @@ function userTemplate(name: string, department: string, subject: string) {
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="UTF-8"/></head>
-<body style="margin:0;padding:0;background:#05070A;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#05070A;padding:40px 20px;">
+<body style="margin:0;padding:0;background:#f0f2f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f2f5;padding:40px 20px;">
     <tr><td align="center">
-      <table width="600" cellpadding="0" cellspacing="0" style="background:#0C0F14;border:1px solid rgba(255,255,255,0.08);border-radius:20px;overflow:hidden;">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,0.06);">
         
-        <!-- Header with Logo -->
+        <!-- Header Bar with Logo -->
         <tr>
-          <td align="center" style="padding:40px 36px 24px 36px;border-bottom:1px solid rgba(255,255,255,0.06);">
-            <img src="${ICON_URL}" alt="BRIXS" height="48" style="display:block;margin-bottom:20px;"/>
-            <h1 style="margin:0;font-size:26px;font-weight:500;color:#ffffff;letter-spacing:-0.03em;">We've received your request</h1>
-            <p style="margin:8px 0 0 0;font-size:14px;color:rgba(255,255,255,0.45);">Our team is on it.</p>
+          <td style="background:#05070A;padding:24px 36px;">
+            <table width="100%"><tr>
+              <td><img src="${LOGO_URL}" alt="BRIXS" height="30" style="display:block;"/></td>
+              <td align="right" style="color:rgba(255,255,255,0.35);font-size:10px;text-transform:uppercase;letter-spacing:2px;">Confirmation</td>
+            </tr></table>
+          </td>
+        </tr>
+
+        <!-- Blue Accent Line -->
+        <tr><td style="height:4px;background:#005BFF;"></td></tr>
+        
+        <!-- Title Section -->
+        <tr>
+          <td align="center" style="padding:40px 36px 20px 36px;">
+            <h1 style="margin:0;font-size:28px;font-weight:600;color:#111827;letter-spacing:-0.03em;">We've received your request</h1>
+            <p style="margin:8px 0 0 0;font-size:15px;color:#6b7280;">Our team is reviewing your inquiry.</p>
           </td>
         </tr>
         
         <!-- Greeting -->
         <tr>
-          <td style="padding:36px 36px 0 36px;">
-            <p style="margin:0 0 20px 0;font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);">
-              Hi <strong style="color:#ffffff;">${name}</strong>,
+          <td style="padding:12px 36px 0 36px;">
+            <p style="margin:0 0 16px 0;font-size:16px;line-height:1.6;color:#374151;">
+              Hi <strong style="color:#111827;">${name}</strong>,
             </p>
-            <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:rgba(255,255,255,0.55);">
+            <p style="margin:0 0 24px 0;font-size:15px;line-height:1.7;color:#6b7280;">
               Thank you for contacting Brixs. We have successfully received your inquiry and a dedicated member from our team will review and respond to you shortly.
             </p>
           </td>
@@ -128,23 +140,23 @@ function userTemplate(name: string, department: string, subject: string) {
         <!-- Inquiry Summary Card -->
         <tr>
           <td style="padding:0 36px 28px 36px;">
-            <table width="100%" cellpadding="0" cellspacing="0" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;overflow:hidden;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;">
               <tr>
-                <td style="padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.04);">
-                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,0.3);font-weight:600;">Subject</p>
-                  <p style="margin:0;font-size:16px;font-weight:500;color:#ffffff;">${subject}</p>
+                <td style="padding:20px 24px;border-bottom:1px solid #e2e8f0;">
+                  <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:#94a3b8;font-weight:600;">Subject</p>
+                  <p style="margin:0;font-size:16px;font-weight:600;color:#111827;">${subject}</p>
                 </td>
               </tr>
               <tr>
                 <td style="padding:16px 24px;">
                   <table width="100%"><tr>
                     <td width="50%">
-                      <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,0.3);font-weight:600;">Department</p>
-                      <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.8);">${department}</p>
+                      <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:#94a3b8;font-weight:600;">Department</p>
+                      <p style="margin:0;font-size:14px;font-weight:500;color:#334155;">${department}</p>
                     </td>
                     <td width="50%">
-                      <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:rgba(255,255,255,0.3);font-weight:600;">Response Time</p>
-                      <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.8);">Within 24–48 hours</p>
+                      <p style="margin:0 0 4px 0;font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:#94a3b8;font-weight:600;">Response Time</p>
+                      <p style="margin:0;font-size:14px;font-weight:500;color:#334155;">Within 24–48 hours</p>
                     </td>
                   </tr></table>
                 </td>
@@ -153,13 +165,13 @@ function userTemplate(name: string, department: string, subject: string) {
           </td>
         </tr>
         
-        <!-- CTA -->
+        <!-- CTA Button -->
         <tr>
-          <td align="center" style="padding:0 36px 36px 36px;">
+          <td align="center" style="padding:0 36px 32px 36px;">
             <table cellpadding="0" cellspacing="0">
               <tr>
-                <td style="background:#ffffff;border-radius:6px;padding:14px 32px;">
-                  <a href="https://www.brixs.space" style="text-decoration:none;font-size:14px;font-weight:600;color:#000000;letter-spacing:-0.01em;">Visit Brixs Platform →</a>
+                <td style="background:#005BFF;border-radius:8px;padding:14px 36px;">
+                  <a href="https://www.brixs.space" style="text-decoration:none;font-size:14px;font-weight:600;color:#ffffff;letter-spacing:-0.01em;">Visit Brixs Platform &rarr;</a>
                 </td>
               </tr>
             </table>
@@ -167,36 +179,76 @@ function userTemplate(name: string, department: string, subject: string) {
         </tr>
         
         <!-- Divider -->
+        <tr><td style="padding:0 36px;"><div style="height:1px;background:#e2e8f0;"></div></td></tr>
+        
+        <!-- Regards -->
         <tr>
-          <td style="padding:0 36px;">
-            <div style="height:1px;background:rgba(255,255,255,0.06);"></div>
+          <td style="padding:28px 36px 20px 36px;">
+            <p style="margin:0 0 4px 0;font-size:14px;color:#6b7280;">Best regards,</p>
+            <p style="margin:0;font-size:16px;font-weight:600;color:#111827;">The Brixs Team</p>
           </td>
         </tr>
-        
-        <!-- Footer -->
+
+        <!-- Social Icons in Blue -->
         <tr>
-          <td style="padding:32px 36px;">
-            <p style="margin:0 0 6px 0;font-size:14px;color:rgba(255,255,255,0.55);">Best regards,</p>
-            <p style="margin:0 0 20px 0;font-size:15px;font-weight:600;color:#ffffff;">The Brixs Team</p>
-            
-            <table width="100%"><tr>
-              <td>
-                <a href="https://www.brixs.space" style="font-size:12px;color:#005BFF;text-decoration:none;margin-right:16px;">Website</a>
-                <a href="https://docs.brixs.space" style="font-size:12px;color:#005BFF;text-decoration:none;margin-right:16px;">Documentation</a>
-                <a href="https://x.com/BrixsChain" style="font-size:12px;color:#005BFF;text-decoration:none;margin-right:16px;">X (Twitter)</a>
-                <a href="https://github.com/Brixs-Chain" style="font-size:12px;color:#005BFF;text-decoration:none;">GitHub</a>
+          <td align="center" style="padding:0 36px 28px 36px;">
+            <table cellpadding="0" cellspacing="0"><tr>
+              <!-- X / Twitter -->
+              <td style="padding:0 8px;">
+                <a href="https://x.com/BrixsChain" style="text-decoration:none;">
+                  <img src="https://img.icons8.com/ios-filled/30/005BFF/twitterx--v1.png" alt="X" width="24" height="24" style="display:block;"/>
+                </a>
+              </td>
+              <!-- Telegram -->
+              <td style="padding:0 8px;">
+                <a href="https://t.me/BrixsChain" style="text-decoration:none;">
+                  <img src="https://img.icons8.com/ios-filled/30/005BFF/telegram-app.png" alt="Telegram" width="24" height="24" style="display:block;"/>
+                </a>
+              </td>
+              <!-- Discord -->
+              <td style="padding:0 8px;">
+                <a href="https://discord.gg/brixs" style="text-decoration:none;">
+                  <img src="https://img.icons8.com/ios-filled/30/005BFF/discord-logo.png" alt="Discord" width="24" height="24" style="display:block;"/>
+                </a>
+              </td>
+              <!-- GitHub -->
+              <td style="padding:0 8px;">
+                <a href="https://github.com/Brixs-Chain" style="text-decoration:none;">
+                  <img src="https://img.icons8.com/ios-filled/30/005BFF/github.png" alt="GitHub" width="24" height="24" style="display:block;"/>
+                </a>
+              </td>
+              <!-- Instagram -->
+              <td style="padding:0 8px;">
+                <a href="https://instagram.com/BrixsChain" style="text-decoration:none;">
+                  <img src="https://img.icons8.com/ios-filled/30/005BFF/instagram-new.png" alt="Instagram" width="24" height="24" style="display:block;"/>
+                </a>
               </td>
             </tr></table>
           </td>
         </tr>
-
-        <!-- Legal -->
+        
+        <!-- Legal Footer -->
         <tr>
-          <td style="padding:20px 36px;background:rgba(0,0,0,0.3);border-top:1px solid rgba(255,255,255,0.04);">
-            <p style="margin:0;font-size:11px;line-height:1.6;color:rgba(255,255,255,0.25);text-align:center;">
-              © ${new Date().getFullYear()} Brixs Chain. All rights reserved.<br/>
-              This is an automated response. Please do not reply directly unless you need to add information to your existing inquiry.
-            </p>
+          <td style="background:#f8fafc;padding:24px 36px;border-top:1px solid #e2e8f0;">
+            <table width="100%">
+              <tr>
+                <td align="center" style="padding-bottom:12px;">
+                  <a href="https://www.brixs.space/company/legal" style="font-size:12px;color:#005BFF;text-decoration:none;margin:0 12px;">Privacy Policy</a>
+                  <span style="color:#cbd5e1;">|</span>
+                  <a href="https://www.brixs.space/company/legal" style="font-size:12px;color:#005BFF;text-decoration:none;margin:0 12px;">Terms of Use</a>
+                  <span style="color:#cbd5e1;">|</span>
+                  <a href="https://docs.brixs.space" style="font-size:12px;color:#005BFF;text-decoration:none;margin:0 12px;">Documentation</a>
+                </td>
+              </tr>
+              <tr>
+                <td align="center">
+                  <p style="margin:0;font-size:11px;line-height:1.6;color:#94a3b8;">
+                    &copy; ${new Date().getFullYear()} Brixs Chain. All rights reserved.<br/>
+                    This is an automated confirmation. Please do not reply unless you need to add information to your inquiry.
+                  </p>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
         
