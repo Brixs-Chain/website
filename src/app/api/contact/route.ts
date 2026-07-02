@@ -3,8 +3,8 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const SENDER_EMAIL = process.env.RESEND_FROM_EMAIL || 'hello@brixs.space';
-const LOGO_URL = 'https://www.brixs.space/branding-kit/full_logo_white_on_transparent.png';
-const ICON_URL = 'https://www.brixs.space/branding-kit/icon_white_on_transparent.png';
+const LOGO_URL = 'https://www.brixs.space/branding-kit/full_logo_black_on_transparent.png';
+const ICON_URL = 'https://www.brixs.space/branding-kit/icon_black_on_transparent.png';
 
 const departmentEmails: Record<string, string> = {
   'General Inquiries': 'hello@brixs.space',
@@ -25,10 +25,10 @@ function internalTemplate(name: string, email: string, department: string, subje
         
         <!-- Header -->
         <tr>
-          <td style="background:#05070A;padding:28px 36px;border-bottom:3px solid #005BFF;">
+          <td style="background:#ffffff;padding:28px 36px;border-bottom:3px solid #005BFF;">
             <table width="100%"><tr>
               <td><img src="${LOGO_URL}" alt="BRIXS" height="32" style="display:block;"/></td>
-              <td align="right" style="color:rgba(255,255,255,0.4);font-size:11px;text-transform:uppercase;letter-spacing:2px;">Internal Inquiry</td>
+              <td align="right" style="color:#9ca3af;font-size:11px;text-transform:uppercase;letter-spacing:2px;">Internal Inquiry</td>
             </tr></table>
           </td>
         </tr>
@@ -106,10 +106,10 @@ function userTemplate(name: string, department: string, subject: string) {
         
         <!-- Header Bar with Logo -->
         <tr>
-          <td style="background:#05070A;padding:24px 36px;">
+          <td style="background:#ffffff;padding:24px 36px;">
             <table width="100%"><tr>
               <td><img src="${LOGO_URL}" alt="BRIXS" height="30" style="display:block;"/></td>
-              <td align="right" style="color:rgba(255,255,255,0.35);font-size:10px;text-transform:uppercase;letter-spacing:2px;">Confirmation</td>
+              <td align="right" style="color:#9ca3af;font-size:10px;text-transform:uppercase;letter-spacing:2px;">Confirmation</td>
             </tr></table>
           </td>
         </tr>
