@@ -123,7 +123,7 @@ export default function BrxFooter() {
               </div>
               <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Chain ID</span>
-                <span className="font-mono text-[#00d395] select-all">10102</span>
+                <span className="font-mono text-[#00d395] select-all">7777777</span>
               </div>
               <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-3 border-t border-[#22252a] pt-3 gap-1 xl:gap-0">
                 <span className="text-[#8c93a2]">Mainnet</span>
@@ -145,8 +145,8 @@ export default function BrxFooter() {
                 <li><a href="https://docs.brixs.space/smart-contracts/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Smart Contracts</a></li>
                 <li><a href="https://docs.brixs.space/wallets/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Wallets</a></li>
                 <li><a href="https://docs.brixs.space/api/overview" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">API Reference</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Testnet Faucet</a></li>
-              <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
+              <li><a href="https://wallet.brixs.network" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Testnet Faucet</a></li>
+              <li><a href="https://github.com/Brixs-Chain" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a></li>
               <li><Link href="/resources/roadmap" className="hover:text-white transition-colors">Development Updates</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Support Forum</a></li>
             </ul>
