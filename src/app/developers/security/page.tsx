@@ -18,7 +18,7 @@ import {
 export const metadata: Metadata = {
   title: "Security | Brixs Chain",
   description:
-    "Security is the foundation of Brixs. Every infrastructure layer is secured before execution — from post-quantum cryptography to validator coordination and Ethereum settlement.",
+    "Security is the foundation of Brixs. Every infrastructure layer is secured before execution — from Future-Proof Securitygraphy to validator coordination and Ethereum settlement.",
 };
 
 const features: [typeof ShieldCheck, string, string][] = [
@@ -95,7 +95,7 @@ export default function SecurityPage() {
         <h2>Cryptography secures the network by default.</h2>
         <p>
           SHA3 hashing, Merkle proofs, digital signatures, and state-integrity
-          proofs guard every transition. A post-quantum-ready cryptographic layer
+          proofs guard every transition. A future-proof-ready cryptographic layer
           keeps validator proofs and encryption keys resilient as future
           infrastructure demands adaptive, upgradeable security.
         </p>
