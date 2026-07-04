@@ -16,6 +16,7 @@ interface MenuItem {
 const menus: Record<string, MenuItem[]> = {
   Products: [
     { title: "Native EVM", subtitle: "High-performance smart contract engine.", icon: <Cpu size={20} strokeWidth={1.5} />, href: "/products/native-evm", badge: "Core" },
+    { title: "Brixs Scan", subtitle: "Testnet Block Explorer.", icon: <Globe2 size={20} strokeWidth={1.5} />, href: "https://testnet.brixs.space", external: true },
     { title: "Brixs CLI & SDKs", subtitle: "Tools for the developer ecosystem.", icon: <SquareSquare size={20} strokeWidth={1.5} />, href: "/products/developer-ecosystem" },
     { title: "Brixs Wallet", subtitle: "Send, receive, and hold assets.", icon: <Wallet size={20} strokeWidth={1.5} />, href: "/use-brixs/wallet" },
     { title: "Portal", subtitle: "Bridge, swap, and manage assets.", icon: <Layers size={20} strokeWidth={1.5} />, href: "/use-brixs/portal" },
@@ -42,6 +43,7 @@ const menus: Record<string, MenuItem[]> = {
     { title: "Infrastructure", subtitle: "Nodes, RPC, and implementation.", icon: <Server size={20} strokeWidth={1.5} />, href: "/developers/infrastructure" },
     { title: "Brixs CLI", subtitle: "Command-line for builders.", icon: <Terminal size={20} strokeWidth={1.5} />, href: "/cli" },
     { title: "Developer CLI", subtitle: "Global NPM package.", icon: <Terminal size={20} strokeWidth={1.5} />, href: "/use-brixs/agent-cli" },
+    { title: "API Keys", subtitle: "Manage your RPC API keys.", icon: <Terminal size={20} strokeWidth={1.5} />, href: "https://testnet.brixs.space/api-keys", external: true },
   ],
   Ecosystem: [
     { title: "Tokenomics", subtitle: "Deflationary mechanics & utility.", icon: <Coins size={20} strokeWidth={1.5} />, href: "/ecosystem/tokenomics" },

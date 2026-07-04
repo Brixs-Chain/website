@@ -18,7 +18,7 @@ import {
 const nav = [
   { name: "Solutions", href: "/solutions" },
   { name: "CLI", href: "/cli" },
-  { name: "Explorer", href: "/explorer" },
+  { name: "Explorer", href: "https://testnet.brixs.space" },
   { name: "Resources", href: "/resources" },
 ];
 const paths = [
@@ -28,7 +28,7 @@ const paths = [
     text: "An inviting place to start: discover the network, move value, and explore new applications.",
     action: "Explore the Network",
     image: "/assets/use-brixs-v2.png",
-    href: "/explorer",
+    href: "https://testnet.brixs.space",
   },
   {
     icon: Code2,

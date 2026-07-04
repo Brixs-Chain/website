@@ -72,6 +72,7 @@ export default function BrxFooter() {
             <h3 className="font-bold text-white mb-5 text-[11px] uppercase tracking-wider">Products</h3>
             <ul className="flex flex-col gap-3.5">
               <li><Link href="/products/native-evm" className="hover:text-white transition-colors">Native EVM</Link></li>
+              <li><a href="https://testnet.brixs.space" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Brixs Scan</a></li>
                 <li><Link href="/use-brixs/wallet" className="hover:text-white transition-colors">Brixs Wallet</Link></li>
                 <li><Link href="/use-brixs/portal" className="hover:text-white transition-colors">Portal</Link></li>
               <li><Link href="/products/developer-ecosystem" className="hover:text-white transition-colors">Developer Ecosystem</Link></li>
@@ -88,6 +89,7 @@ export default function BrxFooter() {
               <li><Link href="/developers/infrastructure" className="hover:text-white transition-colors">Infrastructure</Link></li>
               <li><Link href="/developers/security" className="hover:text-white transition-colors">Security</Link></li>
               <li><Link href="/cli" className="hover:text-white transition-colors">Brixs CLI</Link></li>
+              <li><a href="https://testnet.brixs.space/api-keys" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">API Keys</a></li>
             </ul>
           </div>
           <div className="mt-8">
