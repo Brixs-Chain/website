@@ -46,7 +46,7 @@ function AdminLoginForm({ onSuccess }: { onSuccess: (role: string) => void }) {
     try {
       const result = await checkLogin({ email: loginId.trim(), password: loginPassword });
       if (result.success) {
-        onSuccess(result.role);
+        onSuccess(result.role || 'editor');
       } else {
         setError('Invalid ID or Password');
       }
