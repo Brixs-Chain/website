@@ -19,4 +19,11 @@ export default defineSchema({
     views: v.optional(v.number()),
     slug: v.optional(v.string()),
   }).index("by_creation", ["createdAt"]).index("by_slug", ["slug"]),
+  
+  admins: defineTable({
+    email: v.string(),
+    password: v.string(), // normally hashed, but we'll keep it simple for now based on current impl
+    role: v.string(), // e.g. "superadmin", "editor"
+    createdAt: v.number(),
+  }).index("by_email", ["email"]),
 });

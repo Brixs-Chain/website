@@ -182,7 +182,8 @@ function BlogPostContent() {
                   <Link 
                     href={`/blog/${prevPost.slug || prevPost._id}`} 
                     key={prevPost._id}
-                    className="group bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 flex flex-col"
+                    className="group bg-white overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+                    style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)' }}
                   >
                     <div className="aspect-[16/9] w-full relative overflow-hidden bg-gray-100">
                       <img 

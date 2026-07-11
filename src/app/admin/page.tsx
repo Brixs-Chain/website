@@ -25,28 +25,44 @@ import {
   AlignLeft, AlignCenter, AlignRight, AlignJustify,
   Minus, Subscript as SubIcon, Superscript as SupIcon,
   Type, Scissors, ClipboardCopy, Clipboard, X, Unlink,
-  Palette, LayoutDashboard, FileText, PenTool, Edit3, Eye, LogOut
+  Palette, LayoutDashboard, FileText, PenTool, Edit3, Eye, LogOut, Users, UserPlus
 } from 'lucide-react';
 import { Id } from '../../../convex/_generated/dataModel';
 
 import './editor.css';
 
 /* ─── Login ─── */
-function AdminLoginForm({ onSuccess }: { onSuccess: () => void }) {
+function AdminLoginForm({ onSuccess }: { onSuccess: (role: string) => void }) {
   const [loginId, setLoginId] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [error, setError] = useState('');
-  const handleLogin = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const checkLogin = useMutation(api.admins.checkLogin);
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (loginId === 'SONISHRIYASH@GMAIL' && loginPassword === 'Soni#2023') onSuccess();
-    else setError('Invalid ID or Password');
+    setLoading(true);
+    setError('');
+    try {
+      const result = await checkLogin({ email: loginId.trim(), password: loginPassword });
+      if (result.success) {
+        onSuccess(result.role);
+      } else {
+        setError('Invalid ID or Password');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
     <div className="pt-32 pb-20 px-6 max-w-md mx-auto min-h-screen text-black">
       <h1 className="text-3xl font-bold text-[#0052FF] mb-8 text-center">Admin Login</h1>
       <form onSubmit={handleLogin} className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <label className="text-gray-700 font-medium">Login ID</label>
+          <label className="text-gray-700 font-medium">Login ID (Email)</label>
           <input type="text" value={loginId} onChange={e => setLoginId(e.target.value)} placeholder="Enter your login ID" className="p-3 bg-white border border-gray-300 text-black rounded shadow-sm focus:border-[#0052FF] focus:ring-1 focus:ring-[#0052FF] outline-none" required />
         </div>
         <div className="flex flex-col gap-2">
@@ -54,7 +70,9 @@ function AdminLoginForm({ onSuccess }: { onSuccess: () => void }) {
           <input type="password" value={loginPassword} onChange={e => setLoginPassword(e.target.value)} placeholder="Enter your password" className="p-3 bg-white border border-gray-300 text-black rounded shadow-sm focus:border-[#0052FF] focus:ring-1 focus:ring-[#0052FF] outline-none" required />
         </div>
         {error && <p className="text-red-500 text-sm font-medium">{error}</p>}
-        <button type="submit" className="mt-4 p-4 bg-[#0052FF] text-white font-bold text-lg rounded shadow-sm cursor-pointer hover:bg-blue-700 transition-all">Login</button>
+        <button type="submit" disabled={loading} className="mt-4 p-4 bg-[#0052FF] text-white font-bold text-lg rounded shadow-sm cursor-pointer hover:bg-blue-700 transition-all disabled:opacity-70">
+          {loading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
     </div>
   );
@@ -432,9 +450,103 @@ function PostManager({ onEdit }: { onEdit: (post: any) => void }) {
 }
 
 
+/* ─── Admin Manager Component ─── */
+function AdminManager() {
+  const admins = useQuery(api.admins.getAdmins) || [];
+  const addAdmin = useMutation(api.admins.addAdmin);
+  const removeAdmin = useMutation(api.admins.removeAdmin);
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('editor');
+  
+  const handleAdd = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !password) return;
+    try {
+      await addAdmin({ email: email.trim(), password, role });
+      setEmail('');
+      setPassword('');
+      alert("Admin added successfully!");
+    } catch (err: any) {
+      alert(err.message || "Error adding admin");
+    }
+  };
+  
+  return (
+    <div className="flex flex-col gap-8 w-full max-w-4xl">
+      <h2 className="text-3xl font-bold text-gray-900">Manage Admins</h2>
+      
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm p-6">
+        <h3 className="text-xl font-bold mb-4">Add New Admin</h3>
+        <form onSubmit={handleAdd} className="flex flex-col md:flex-row gap-4 items-end">
+          <div className="flex flex-col gap-2 flex-1">
+            <label className="text-gray-700 font-medium text-sm">Email</label>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} className="p-3 border border-gray-300 rounded focus:border-[#0052FF] outline-none" required />
+          </div>
+          <div className="flex flex-col gap-2 flex-1">
+            <label className="text-gray-700 font-medium text-sm">Password</label>
+            <input type="text" value={password} onChange={e => setPassword(e.target.value)} className="p-3 border border-gray-300 rounded focus:border-[#0052FF] outline-none" required />
+          </div>
+          <div className="flex flex-col gap-2 w-32">
+            <label className="text-gray-700 font-medium text-sm">Role</label>
+            <select value={role} onChange={e => setRole(e.target.value)} className="p-3 border border-gray-300 rounded focus:border-[#0052FF] outline-none bg-white">
+              <option value="editor">Editor</option>
+              <option value="superadmin">Superadmin</option>
+            </select>
+          </div>
+          <button type="submit" className="p-3 bg-[#0052FF] text-white font-bold rounded hover:bg-blue-700 whitespace-nowrap flex items-center gap-2">
+            <UserPlus size={18} /> Add
+          </button>
+        </form>
+      </div>
+
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-gray-50 border-b border-gray-200">
+              <th className="p-4 text-gray-600 font-medium">Email</th>
+              <th className="p-4 text-gray-600 font-medium">Role</th>
+              <th className="p-4 text-gray-600 font-medium">Created</th>
+              <th className="p-4 text-gray-600 font-medium text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {/* Hardcoded superadmin */}
+            <tr className="border-b border-gray-100 hover:bg-gray-50">
+              <td className="p-4 font-semibold text-gray-900">SONISHRIYASH@GMAIL</td>
+              <td className="p-4"><span className="bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded">superadmin</span></td>
+              <td className="p-4 text-sm text-gray-500">System</td>
+              <td className="p-4 text-right text-gray-400 text-sm italic">Cannot delete</td>
+            </tr>
+            {admins.map((a: any) => (
+              <tr key={a._id} className="border-b border-gray-100 hover:bg-gray-50">
+                <td className="p-4 font-semibold text-gray-900">{a.email}</td>
+                <td className="p-4">
+                  <span className={`text-xs font-bold px-2 py-1 rounded ${a.role === 'superadmin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'}`}>
+                    {a.role}
+                  </span>
+                </td>
+                <td className="p-4 text-sm text-gray-500">{new Date(a.createdAt).toLocaleDateString()}</td>
+                <td className="p-4 text-right">
+                  <button onClick={async () => {
+                    if (window.confirm("Remove this admin?")) {
+                      await removeAdmin({ id: a._id });
+                    }
+                  }} className="text-red-500 hover:text-red-700 p-2"><Trash2 size={18} /></button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 /* ─── Admin Portal Layout ─── */
-function AdminPortal() {
-  const [activeTab, setActiveTab] = useState<'analytics' | 'manage' | 'create'>('analytics');
+function AdminPortal({ adminRole }: { adminRole: string }) {
+  const [activeTab, setActiveTab] = useState<'analytics' | 'manage' | 'create' | 'admins'>('analytics');
   const [editingPost, setEditingPost] = useState<any>(null);
 
   const handleEdit = (post: any) => {
@@ -465,6 +577,15 @@ function AdminPortal() {
           >
             <PenTool size={20} /> {editingPost ? 'Edit Post' : 'Create Post'}
           </button>
+          
+          {adminRole === 'superadmin' && (
+            <button 
+              onClick={() => { setActiveTab('admins'); setEditingPost(null); }}
+              className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${activeTab === 'admins' ? 'bg-[#0052FF] text-white' : 'text-gray-600 hover:bg-gray-100'}`}
+            >
+              <Users size={20} /> Manage Admins
+            </button>
+          )}
         </div>
         <div className="p-6">
           <button onClick={() => window.location.reload()} className="flex items-center gap-3 px-4 py-3 w-full rounded-lg font-medium text-red-600 hover:bg-red-50 transition-all">
@@ -485,20 +606,26 @@ function AdminPortal() {
             <PostEditor postToEdit={editingPost} onSuccess={() => { setEditingPost(null); setActiveTab('manage'); }} />
           </div>
         )}
+        {activeTab === 'admins' && adminRole === 'superadmin' && <AdminManager />}
       </main>
     </div>
   );
 }
 
 /* ─── Page Entry ─── */
-export default function AdminPage() {
+function AdminPageContent() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [adminRole, setAdminRole] = useState('');
   
-  if (!isAuthenticated) return <AdminLoginForm onSuccess={() => setIsAuthenticated(true)} />;
+  if (!isAuthenticated) return <AdminLoginForm onSuccess={(role) => { setIsAuthenticated(true); setAdminRole(role); }} />;
   
+  return <AdminPortal adminRole={adminRole} />;
+}
+
+export default function AdminPage() {
   return (
     <ConvexClientProvider>
-      <AdminPortal />
+      <AdminPageContent />
     </ConvexClientProvider>
   );
 }

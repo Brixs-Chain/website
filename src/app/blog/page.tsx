@@ -35,7 +35,10 @@ function BlogContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {results.map(post => (
             <Link href={`/blog/${post.slug || post._id}`} key={post._id} className="block group">
-              <article className="bg-white dark:bg-[#12141a] border border-gray-200 dark:border-[#1f2229] rounded-xl overflow-hidden flex flex-col h-full transition-transform duration-200 hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md">
+              <article 
+                className="bg-white dark:bg-[#12141a] overflow-hidden flex flex-col h-full transition-transform duration-200 hover:-translate-y-2 cursor-pointer shadow-sm hover:shadow-md"
+                style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)' }}
+              >
               <div className="h-56 overflow-hidden relative">
                 <img src={post.templateImage} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 {post.tags && post.tags[0] && (

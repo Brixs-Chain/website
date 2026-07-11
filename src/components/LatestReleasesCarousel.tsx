@@ -76,8 +76,8 @@ function CarouselContent() {
           {posts.map((post) => (
             <Link 
               href={`/blog/${post.slug || post._id}`} 
-              key={post._id}
-              className="group min-w-[300px] max-w-[340px] md:min-w-[400px] md:max-w-[420px] snap-start flex-shrink-0 bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col"
+              className="group min-w-[300px] max-w-[340px] md:min-w-[400px] md:max-w-[420px] snap-start flex-shrink-0 bg-gray-50 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col"
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%)' }}
             >
               <div className="aspect-[16/9] w-full relative overflow-hidden bg-gray-200">
                 <img 
